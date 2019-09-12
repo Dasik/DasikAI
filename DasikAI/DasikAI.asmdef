@@ -1,0 +1,7 @@
+{
+	"name": "com.dasik.ai",
+	"references": [
+        "XNode",
+		"XNodeEditor"
+    ]
+}
