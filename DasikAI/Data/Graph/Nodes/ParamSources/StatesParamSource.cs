@@ -1,6 +1,5 @@
 using DasikAI.Scripts.Controller;
 using DasikAI.Scripts.Data.CustomTypes;
-using DasikAI.Scripts.Data.Editor;
 using DasikAI.Scripts.Data.Graph.Attributes;
 using DasikAI.Scripts.Data.Graph.Base;
 using UnityEngine;
