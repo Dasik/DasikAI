@@ -17,7 +17,7 @@ To install this project as a [Git dependency](https://docs.unity3d.com/Manual/up
 add the following line to your project's `manifest.json`:
 
 ```
-"com.dasik.pathfinding": "https://github.com/Dasik/DasikAI.git",
+"com.dasik.ai": "https://github.com/Dasik/DasikAI.git",
 "com.github.siccity.xnode": "https://github.com/siccity/xNode.git"
 ```
 

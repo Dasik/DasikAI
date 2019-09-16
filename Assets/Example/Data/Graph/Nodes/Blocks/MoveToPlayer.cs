@@ -13,7 +13,7 @@ namespace DasikAI.Example.Data.Graph.Nodes.Blocks
 	[AINode("Blocks/MoveToPlayer")]
 	public class MoveToPlayer : AIBlock
 	{
-		[SerializeField] private float _minDistanceToCell;
+		[SerializeField] private float _minDistanceToCell = 0;
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
 			base.Initialize(controller);

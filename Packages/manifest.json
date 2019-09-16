@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.dasik.ai": "file:F:/Development/Gamedev/DasikAI",
+    "com.dasik.ai": "https://github.com/Dasik/DasikAI.git",
     "com.dasik.pathfinding": "https://github.com/Dasik/PathFindingProject.git",
     "com.github.siccity.xnode": "https://github.com/siccity/xNode.git",
     "com.unity.2d.sprite": "1.0.0",
@@ -47,6 +47,10 @@
     "com.unity.modules.xr": "1.0.0"
   },
   "lock": {
+    "com.dasik.ai": {
+      "hash": "7ebca337dfcac16c0ff2160c5b78ccc4b4a50652",
+      "revision": "HEAD"
+    },
     "com.dasik.pathfinding": {
       "hash": "37cf3c733b335cc58dff839e68e641bf3b0939c7",
       "revision": "HEAD"
