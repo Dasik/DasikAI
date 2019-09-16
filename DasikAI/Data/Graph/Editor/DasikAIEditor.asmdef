@@ -2,6 +2,7 @@
     "name": "com.dasik.ai.editor",
     "references": [
         "com.dasik.ai",
+        "com.dasik.ai.data.editor",
 		"XNodeEditor",
 		"XNode"
     ],

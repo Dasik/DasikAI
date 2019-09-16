@@ -1,4 +1,5 @@
 ﻿using DasikAI.Scripts.Controller;
+using DasikAI.Scripts.Data.CustomTypes;
 using DasikAI.Scripts.Data.Graph.Attributes;
 using DasikAI.Scripts.Data.Graph.Base;
 using DasikAI.Scripts.Data.Graph.Nodes.DSO;
@@ -7,9 +8,9 @@ using UnityEngine;
 namespace Assets.DasikAI.Scripts.Data.Graph.Nodes.Blocks
 {
 	[AINode("Blocks/SetState")]
-	public class SetState: AIBlock
+	public class SetState : AIBlock
 	{
-		[SerializeField] private StatesEnum _state;
+		[SerializeField] protected StatesEnum State;
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
 			base.Initialize(controller);
@@ -27,7 +28,7 @@ namespace Assets.DasikAI.Scripts.Data.Graph.Nodes.Blocks
 
 		public override IDataStoreObject DoWork(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			((StateDSO) dataStoreObject).State = _state;
+			((StateDSO)dataStoreObject).State = State.SelectedValue;
 			return dataStoreObject;
 		}
 	}

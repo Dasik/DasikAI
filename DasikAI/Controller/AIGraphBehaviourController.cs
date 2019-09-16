@@ -9,10 +9,9 @@ namespace DasikAI.Scripts.Controller
 	public class AIGraphBehaviourController : MonoBehaviour
 	{
 		[SerializeField]
-		private AIGraph _aiGraph;
-
+		protected AIGraph AiGraph = null;
 		[SerializeField]
-		private AgentController _agentController;
+		protected AgentController AgentController = null;
 
 		private HashSet<AINode> _activeNodes = new HashSet<AINode>();
 		public HashSet<AINode> ActiveNodes
@@ -25,12 +24,12 @@ namespace DasikAI.Scripts.Controller
 
 		public void Start()
 		{
-			foreach (var node in _aiGraph.nodes)
+			foreach (var node in AiGraph.nodes)
 			{
 				var aiNode = node as AINode;
 				if (aiNode != null)
 				{
-					var dso = aiNode.Initialize(_agentController);
+					var dso = aiNode.Initialize(AgentController);
 					_dsoDictionary.Add(aiNode, dso);
 				}
 			}
@@ -42,7 +41,7 @@ namespace DasikAI.Scripts.Controller
 			foreach (var activeBlock in _activeNodes)
 			{
 				var dso = _dsoDictionary[activeBlock];
-				activeBlock.Enable(dso, _agentController);
+				activeBlock.Enable(dso, AgentController);
 			}
 		}
 
@@ -51,13 +50,13 @@ namespace DasikAI.Scripts.Controller
 			foreach (var activeBlock in _activeNodes)
 			{
 				var dso = _dsoDictionary[activeBlock];
-				activeBlock.Disable(dso, _agentController);
+				activeBlock.Disable(dso, AgentController);
 			}
 		}
 
 		public void OnDestroy()
 		{
-			foreach (var node in _aiGraph.nodes)
+			foreach (var node in AiGraph.nodes)
 			{
 				var aiNode = node as AINode;
 				if (aiNode != null)
@@ -72,7 +71,7 @@ namespace DasikAI.Scripts.Controller
 		{
 			var currentActivatedNodes = new HashSet<AINode>();
 			var nodesStack = new Stack<AINode>();
-			nodesStack.Push(_aiGraph.root);
+			nodesStack.Push(AiGraph.Root);
 
 			while (nodesStack.Count != 0)
 			{
@@ -85,7 +84,7 @@ namespace DasikAI.Scripts.Controller
 				}
 				else
 				{
-					dso = currentNode.Enter(dso, _agentController);
+					dso = currentNode.Enter(dso, AgentController);
 				}
 
 				currentActivatedNodes.Add(currentNode);
@@ -93,9 +92,9 @@ namespace DasikAI.Scripts.Controller
 				if (currentNode is AIBlock)
 				{
 					var aiBlock = currentNode as AIBlock;
-					dso = aiBlock.DoWork(dso, _agentController);
+					dso = aiBlock.DoWork(dso, AgentController);
 				}
-				foreach (var node in currentNode.Next(dso, _agentController))
+				foreach (var node in currentNode.Next(dso, AgentController))
 				{
 					if (node == null || currentActivatedNodes.Contains(node))
 						continue;
@@ -117,7 +116,7 @@ namespace DasikAI.Scripts.Controller
 			foreach (var disabledBlock in _activeNodes)
 			{
 				var dso = _dsoDictionary[disabledBlock];
-				disabledBlock.Exit(dso, _agentController);
+				disabledBlock.Exit(dso, AgentController);
 			}
 
 			_activeNodes = currentActivatedNodes;

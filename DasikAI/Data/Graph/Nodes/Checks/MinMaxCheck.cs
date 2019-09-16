@@ -10,9 +10,9 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 	[AINode("Checks/MinMaxCheck")]
 	public class MinMaxCheck : AIBlockCheck
 	{
-		[Input(ShowBackingValue.Always,ConnectionType.Override,TypeConstraint.None)] public ParamSource ParamSource;
-		[SerializeField] private float _min;
-		[SerializeField] private float _max;
+		[Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)] public ParamSource ParamSource;
+		[SerializeField] private float _min = 0;
+		[SerializeField] private float _max = 0;
 
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
@@ -20,14 +20,14 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
 			base.Initialize(controller);
-			var dso = new MinMaxDSO {Max = _max, Min = _min};
-			return (IDataStoreObject) dso;
+			var dso = new MinMaxDSO { Max = _max, Min = _min };
+			return (IDataStoreObject)dso;
 		}
 
 		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			var dso = (MinMaxDSO) dataStoreObject;
-			var param = ParamSource.GetParam(controller);
+			var dso = (MinMaxDSO)dataStoreObject;
+			var param = ParamSource.GetParam<float>(controller);
 			if (param >= dso.Min && param <= dso.Max)
 				return @true;
 			return @false;

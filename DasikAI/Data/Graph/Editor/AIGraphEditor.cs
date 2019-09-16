@@ -12,7 +12,7 @@ namespace Assets.DasikAI.Scripts.Data.Graph.Editor
 		public override void OnOpen()
 		{
 			base.OnOpen();
-			base.window.titleContent= new GUIContent("DasikAI");
+			base.window.titleContent = new GUIContent("DasikAI");
 		}
 
 

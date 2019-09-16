@@ -2,7 +2,7 @@
 
 namespace DasikAI.Scripts.Data.Graph.Nodes.DSO
 {
-	public class SingleValueDSO <T>: IDataStoreObject
+	public class SingleValueDSO<T> : IDataStoreObject
 	{
 		public T Value;
 	}

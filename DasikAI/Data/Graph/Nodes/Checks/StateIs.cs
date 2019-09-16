@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using DasikAI.Scripts.Controller;
+using DasikAI.Scripts.Data.CustomTypes;
 using DasikAI.Scripts.Data.Graph.Attributes;
 using DasikAI.Scripts.Data.Graph.Base;
 using DasikAI.Scripts.Data.Graph.Nodes.DSO;
@@ -33,7 +34,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 			var result = Enumerable.Empty<AINode>();
 			for (int i = 0; i < States.Length; i++)
 			{
-				var state = States[i];
+				var state = States[i].SelectedValue;
 				if (state.Equals(currentState))
 					result = result.Union(
 						GetPort(nameof(States) + " " + i)

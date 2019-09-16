@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using DasikAI.Scripts.Controller;
+﻿using DasikAI.Scripts.Controller;
+using DasikAI.Scripts.Data.CustomTypes;
 using DasikAI.Scripts.Data.Graph.Attributes;
 using DasikAI.Scripts.Data.Graph.Base;
 using DasikAI.Scripts.Data.Graph.Nodes.DSO;
@@ -11,7 +11,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 	[AINode("Checks/AnyState")]
 	public class AnyState : AIBlockCheck
 	{
-		[SerializeField] private StatesEnum[] _state = new StatesEnum[1];
+		[SerializeField] private StatesEnum _state = new StatesEnum();
 
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
@@ -34,7 +34,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
 		{
 			var currentState = ((StateDSO)dataStoreObject).State;
-			return _state.Any(item => item == currentState) ? @true : @false;
+			return _state.SelectedValue == currentState ? @true : @false;
 		}
 	}
 }

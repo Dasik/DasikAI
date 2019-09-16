@@ -9,15 +9,14 @@ namespace Assets.DasikAI.Scripts.Data.Graph.Editor
 	[CustomNodeEditor(typeof(AIBlock))]
 	public class AIBlockEditor : NodeEditor
 	{
-
 		public override void OnHeaderGUI()
 		{
 			GUI.color = Color.white;
 			var node = target as AIBlock;
 			var graph = node.graph as AIGraph;
-			if (graph.root == node) GUI.color = Color.blue;
+			if (graph.Root == node) GUI.color = Color.blue;
 			string title = target.name;
-			if (graph.root == node)
+			if (graph.Root == node)
 				title += "(root)";
 			GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
 			GUI.color = Color.white;
@@ -28,8 +27,8 @@ namespace Assets.DasikAI.Scripts.Data.Graph.Editor
 			base.OnBodyGUI();
 			var node = target as AIBlock;
 			var graph = node.graph as AIGraph;
-			if (graph.root != node)
-				if (GUILayout.Button("Set as root")) graph.root = node;
+			if (graph.Root != node)
+				if (GUILayout.Button("Set as root")) graph.Root = node;
 		}
 
 		public override Color GetTint()

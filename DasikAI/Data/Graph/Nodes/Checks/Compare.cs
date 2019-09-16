@@ -11,32 +11,32 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 	public class Compare : AIBlockCheck
 	{
 		[Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)] public ParamSource ParamSource;
-		[SerializeField] private float _value;
-		[SerializeField] private OperatorType _operatorType;
+		[SerializeField] protected float Value = 0;
+		[SerializeField] protected OperatorType OperatorType = OperatorType.Equal;
 
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
 
 		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			var param = ParamSource.GetParam(controller);
+			var param = ParamSource.GetParam<float>(controller);
 			var result = false;
-			switch (_operatorType)
+			switch (OperatorType)
 			{
 				case OperatorType.Less:
-					result = param < _value;
+					result = param < Value;
 					break;
 				case OperatorType.LessOrEqual:
-					result = param <= _value;
+					result = param <= Value;
 					break;
 				case OperatorType.Equal:
-					result = Math.Abs(param - _value) < 0.000000001f;
+					result = Math.Abs(param - Value) < 0.000000001f;
 					break;
 				case OperatorType.GreaterOrEqual:
-					result = param >= _value;
+					result = param >= Value;
 					break;
 				case OperatorType.Greater:
-					result = param > _value;
+					result = param > Value;
 					break;
 			}
 			return result ? @true : @false;

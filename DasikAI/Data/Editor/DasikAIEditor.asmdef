@@ -1,0 +1,9 @@
+﻿{
+    "name": "com.dasik.ai.data.editor",
+    "references": [
+        "com.dasik.ai"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}

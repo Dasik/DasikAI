@@ -10,7 +10,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 	[AINode("Checks/TimerCheck")]
 	public class TimerCheck : AIBlockCheck
 	{
-		[SerializeField] private float _time;
+		[SerializeField] private float _time = 0;
 
 		[Node.Output] public AINode next;
 
