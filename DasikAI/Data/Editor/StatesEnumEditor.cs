@@ -1,10 +1,10 @@
-using DasikAI.Scripts.Data.CustomTypes;
+using DasikAI.Data.CustomTypes;
 using DasikAI.Utility;
 using UnityEditor;
 using UnityEngine;
 
 
-namespace DasikAI.Scripts.Data.Editor
+namespace DasikAI.Data.Editor
 {
 	[CustomPropertyDrawer(typeof(StatesEnum), true)]
 	public class StatesEnumEditor : PropertyDrawer
@@ -19,18 +19,18 @@ namespace DasikAI.Scripts.Data.Editor
 				PropertyDrawerUtility.GetActualObjectForSerializedProperty<StatesEnum>(fieldInfo, property);
 			if (value != null)
 			{
-
-				var selectedIndex = value.SelectedIndex;
+				EditorGUI.BeginChangeCheck();
 				var newSelectedIndex = EditorGUI.Popup(position, value.SelectedIndex, value.Values);
-				if (selectedIndex != newSelectedIndex)
+				if (EditorGUI.EndChangeCheck())
 				{
 					value.SelectedIndex = newSelectedIndex;
 					PropertyDrawerUtility.SetActualObjectForSerializedProperty(fieldInfo, property, value);
+					property.serializedObject.ApplyModifiedProperties();
 				}
-			}
 
-			EditorGUI.indentLevel = indent;
-			EditorGUI.EndProperty();
+				EditorGUI.indentLevel = indent;
+				EditorGUI.EndProperty();
+			}
 		}
 	}
 }

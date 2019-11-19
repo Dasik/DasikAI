@@ -36,11 +36,14 @@ namespace DasikAI.Utility
 				var index = Convert.ToInt32(new string(property.propertyPath.Where(c => char.IsDigit(c)).ToArray()));
 				Array fieldValue = (Array)fieldInfo.GetValue(property.serializedObject.targetObject);
 				fieldValue.SetValue(value, index);
+				//property.GetArrayElementAtIndex(index).serializedObject.= value;
 			}
 			else
 			{
 				fieldInfo.SetValue(property.serializedObject.targetObject, value);
 			}
+			EditorUtility.SetDirty(property.serializedObject.targetObject);
+			AssetDatabase.SaveAssets();
 		}
 	}
 }

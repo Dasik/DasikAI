@@ -1,18 +1,20 @@
-﻿using DasikAI.Scripts.Controller;
-using DasikAI.Scripts.Data.Graph.Attributes;
-using DasikAI.Scripts.Data.Graph.Base;
-using DasikAI.Scripts.Data.Graph.Nodes.DSO;
+﻿using DasikAI.Controller;
+using DasikAI.Data.Graph.Attributes;
+using DasikAI.Data.Graph.Base;
+using DasikAI.Data.Graph.Base.Blocks;
+using DasikAI.Data.Graph.Base.DSO;
+using DasikAI.Data.Graph.Nodes.DSO;
 using UnityEngine;
-using XNode;
 
-namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
+namespace DasikAI.Data.Graph.Nodes.Checks
 {
 	[AINode("Checks/TimerCheck")]
 	public class TimerCheck : AIBlockCheck
 	{
 		[SerializeField] private float _time = 0;
 
-		[Node.Output] public AINode next;
+		[Output] public AINode IsElapsed;
+		[Output] public AINode IsNotElapsed;
 
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
@@ -31,7 +33,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 		public override IDataStoreObject Exit(IDataStoreObject dataStoreObject, AgentController controller)
 		{
 			var dso = (SingleValueDSO<float>)dataStoreObject;
-			dso.Value = -1;
+			dso.Value = 0f;
 			return dso;
 		}
 
@@ -39,8 +41,8 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 		{
 			var dso = (SingleValueDSO<float>)dataStoreObject;
 			if (Time.time - dso.Value > _time)
-				return next;
-			return null;
+				return IsNotElapsed;
+			return IsElapsed;
 		}
 	}
 }

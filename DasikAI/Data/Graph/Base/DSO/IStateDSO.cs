@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DasikAI.Scripts.Data.Graph.Base
+namespace DasikAI.Data.Graph.Base.DSO
 {
 	/// <summary>
 	/// 

@@ -1,10 +1,10 @@
-﻿using DasikAI.Scripts.Data.Graph.Base;
+﻿using DasikAI.Data.Graph.Base.ParamSources;
 using UnityEngine;
 using XNodeEditor;
 
-namespace Assets.DasikAI.Scripts.Data.Graph.Editor
+namespace DasikAI.Data.Graph.Editor
 {
-	[NodeEditor.CustomNodeEditorAttribute(typeof(ParamSource))]
+	[NodeEditor.CustomNodeEditorAttribute(typeof(ParamSource<>))]
 	public class ParamSourceEditor : NodeEditor
 	{
 		public override Color GetTint()

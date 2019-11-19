@@ -1,10 +1,10 @@
 using System;
-using UnityEngine;
 
-namespace DasikAI.Scripts.Data.CustomTypes
+namespace DasikAI.Data.CustomTypes
 {
 	[Serializable]
 	public class StatesEnum : DynamicEnum<string>
 	{
+
 	}
 }

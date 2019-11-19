@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DasikAI.Scripts.Data.Graph.Attributes
+namespace DasikAI.Data.Graph.Attributes
 {
 	[AttributeUsage(AttributeTargets.Class, Inherited = false)]
 	public class AINodeAttribute : Attribute

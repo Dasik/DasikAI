@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DasikAI.Scripts.Data.Graph.Base
+namespace DasikAI.Data.Graph.Base.DSO
 {
 	public interface IDataStoreObject { }
 

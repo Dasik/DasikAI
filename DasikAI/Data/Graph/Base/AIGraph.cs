@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DasikAI.Example.Data.Graph.Nodes.ParamSources;
-using DasikAI.Scripts.Data.CustomTypes;
+using DasikAI.Data.CustomTypes;
+using DasikAI.Data.Graph.Base.Blocks;
+using DasikAI.Data.Graph.Nodes.ParamSources;
 using UnityEngine;
 using XNode;
 
-namespace DasikAI.Scripts.Data.Graph.Base
+namespace DasikAI.Data.Graph.Base
 {
 	[CreateAssetMenu(fileName = "New AI State Graph", menuName = "Dasik AI/AI State Graph")]
 	public class AIGraph : NodeGraph
@@ -31,6 +32,7 @@ namespace DasikAI.Scripts.Data.Graph.Base
 				StatesSource = node as StatesParamSource;
 				UpdateStates();
 			}
+
 			UpdateStates(node);
 			return node;
 		}
@@ -60,8 +62,11 @@ namespace DasikAI.Scripts.Data.Graph.Base
 		{
 			foreach (var node in nodes)
 			{
-				if (node == StatesSource)
-					continue;
+				if (node is StatesParamSource)
+				{
+					StatesSource = node as StatesParamSource;
+				}
+
 				UpdateStates(node);
 			}
 		}
@@ -69,9 +74,9 @@ namespace DasikAI.Scripts.Data.Graph.Base
 		public void UpdateStates(Node node)
 		{
 			var fields = node.GetType().GetFields(
-					BindingFlags.Public |
-					BindingFlags.NonPublic |
-					BindingFlags.Instance);
+				BindingFlags.Public |
+				BindingFlags.NonPublic |
+				BindingFlags.Instance);
 
 			foreach (var info in fields)
 			{
@@ -79,7 +84,7 @@ namespace DasikAI.Scripts.Data.Graph.Base
 				{
 					if (info.FieldType.GetElementType().IsAssignableFrom(typeof(StatesEnum)))
 					{
-						Array oldStates = (Array)info.GetValue(node);
+						Array oldStates = (Array) info.GetValue(node);
 						if (oldStates == null || StatesSource == null)
 						{
 							info.SetValue(node, null);
@@ -94,6 +99,7 @@ namespace DasikAI.Scripts.Data.Graph.Base
 									newState.SelectedValue = oldState.SelectedValue;
 								oldStates.SetValue(newState, i);
 							}
+
 							//fieldInfo.SetValue(node, oldStates);
 						}
 					}
@@ -107,7 +113,8 @@ namespace DasikAI.Scripts.Data.Graph.Base
 						else
 						{
 							var newState = StatesSource.States;
-							if (info.GetValue(node) is StatesEnum oldState)
+							var oldState = info.GetValue(node) as StatesEnum;
+							if (oldState != null)
 								newState.SelectedValue = oldState.SelectedValue;
 							info.SetValue(node, newState);
 						}
@@ -126,7 +133,7 @@ namespace DasikAI.Scripts.Data.Graph.Base
 				{
 					if (info.PropertyType.GetElementType().IsAssignableFrom(typeof(StatesEnum)))
 					{
-						Array oldStates = (Array)info.GetValue(node);
+						Array oldStates = (Array) info.GetValue(node);
 						if (oldStates == null || StatesSource == null)
 						{
 							info.SetValue(node, null);
@@ -141,20 +148,20 @@ namespace DasikAI.Scripts.Data.Graph.Base
 									newState.SelectedValue = oldState.SelectedValue;
 								oldStates.SetValue(newState, i);
 							}
-							//fieldInfo.SetValue(node, oldStates);
 						}
 					}
 				}
 				else
 				{
-					if (info.PropertyType == typeof(StatesEnum))
+					if (info.PropertyType == typeof(StatesEnum) && info.CanWrite)
 					{
 						if (StatesSource == null)
 							info.SetValue(node, null);
 						else
 						{
 							var newState = StatesSource.States;
-							if (info.GetValue(node) is StatesEnum oldState)
+							var oldState = info.GetValue(node) as StatesEnum;
+							if (oldState != null)
 								newState.SelectedValue = oldState.SelectedValue;
 							info.SetValue(node, newState);
 						}

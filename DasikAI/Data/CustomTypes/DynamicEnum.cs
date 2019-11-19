@@ -1,17 +1,17 @@
 using System;
 using UnityEngine;
 
-namespace DasikAI.Scripts.Data.CustomTypes
+namespace DasikAI.Data.CustomTypes
 {
 	[Serializable]
 	public class DynamicEnum<T>
 	{
-		[SerializeField] [HideInInspector] public T[] Values { get; set; } = { default };
-		[SerializeField] [HideInInspector] public int SelectedIndex { get; set; } = 0;
+		[SerializeField] [HideInInspector] public T[] Values = {default};
+		[SerializeField] [HideInInspector] public int SelectedIndex;
 
 		public T SelectedValue
 		{
-			get { return Values[SelectedIndex]; }
+			get => Values[SelectedIndex];
 			set
 			{
 				for (int i = 0; i < Values.Length; i++)

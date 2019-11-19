@@ -1,28 +1,22 @@
-using DasikAI.Scripts.Controller;
-using DasikAI.Scripts.Data.CustomTypes;
-using DasikAI.Scripts.Data.Graph.Attributes;
-using DasikAI.Scripts.Data.Graph.Base;
+using DasikAI.Controller;
+using DasikAI.Data.CustomTypes;
+using DasikAI.Data.Graph.Attributes;
+using DasikAI.Data.Graph.Base.ParamSources;
 using UnityEngine;
 
-namespace DasikAI.Example.Data.Graph.Nodes.ParamSources
+namespace DasikAI.Data.Graph.Nodes.ParamSources
 {
+	[System.Serializable]
 	[AINode("Params/States")]
-	public class StatesParamSource : ParamSource
+	public class StatesParamSource : ParamSource<StatesEnum>
 	{
-		public string[] StatesList = { "Idle" };
+		[SerializeField] public string[] StatesList = {"Idle"};
 
-		[SerializeField]
-		[HideInInspector]
-		public StatesEnum States
-		{
-			get
-			{
-				return new StatesEnum() { Values = StatesList };
-			}
-			set { StatesList = value == null ? new string[0] : value.Values; }
-		}
+		[HideInInspector] public StatesEnum States => new StatesEnum {Values = StatesList};
 
-		protected override object GetParameterValue<T>(AgentController agentController)
+		[SerializeField] public StatesEnum InitialState;
+
+		public override StatesEnum GetParam(AgentController agentController)
 		{
 			return States;
 		}

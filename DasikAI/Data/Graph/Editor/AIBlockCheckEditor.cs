@@ -1,10 +1,11 @@
-﻿using DasikAI.Scripts.Controller;
-using DasikAI.Scripts.Data.Graph.Base;
+﻿using DasikAI.Controller;
+using DasikAI.Data.Graph.Base;
+using DasikAI.Data.Graph.Base.Blocks;
 using UnityEditor;
 using UnityEngine;
 using XNodeEditor;
 
-namespace Assets.DasikAI.Scripts.Data.Graph.Editor
+namespace DasikAI.Data.Graph.Editor
 {
 	[CustomNodeEditor(typeof(AIBlockCheck))]
 	public class AIBlockCheckEditor : NodeEditor

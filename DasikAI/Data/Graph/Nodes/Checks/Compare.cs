@@ -1,16 +1,21 @@
 ﻿using System;
-using DasikAI.Scripts.Controller;
-using DasikAI.Scripts.Data.Graph.Attributes;
-using DasikAI.Scripts.Data.Graph.Base;
+using DasikAI.Controller;
+using DasikAI.Data.Graph.Attributes;
+using DasikAI.Data.Graph.Base;
+using DasikAI.Data.Graph.Base.Blocks;
+using DasikAI.Data.Graph.Base.DSO;
+using DasikAI.Data.Graph.Base.ParamSources;
 using UnityEngine;
 using XNode;
 
-namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
+namespace DasikAI.Data.Graph.Nodes.Checks
 {
 	[AINode("Checks/Compare")]
 	public class Compare : AIBlockCheck
 	{
-		[Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)] public ParamSource ParamSource;
+		[Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)]
+		public FloatParamSource ParamSource;
+
 		[SerializeField] protected float Value = 0;
 		[SerializeField] protected OperatorType OperatorType = OperatorType.Equal;
 
@@ -19,7 +24,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 
 		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			var param = ParamSource.GetParam<float>(controller);
+			var param = ParamSource.GetParam(controller);
 			var result = false;
 			switch (OperatorType)
 			{
@@ -39,6 +44,7 @@ namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
 					result = param > Value;
 					break;
 			}
+
 			return result ? @true : @false;
 		}
 	}

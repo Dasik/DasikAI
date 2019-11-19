@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DasikAI.Scripts.Controller;
+using DasikAI.Controller;
+using DasikAI.Data.Graph.Base.DSO;
 
-namespace DasikAI.Scripts.Data.Graph.Base
+namespace DasikAI.Data.Graph.Base.Blocks
 {
 	public abstract class AIBlockCheck : AINode
 	{

@@ -1,6 +1,6 @@
-﻿using DasikAI.Scripts.Data.Graph.Base;
+﻿using DasikAI.Data.Graph.Base.DSO;
 
-namespace DasikAI.Scripts.Data.Graph.Nodes.DSO
+namespace DasikAI.Data.Graph.Nodes.DSO
 {
 	public struct MinMaxDSO : IDataStoreObject
 	{

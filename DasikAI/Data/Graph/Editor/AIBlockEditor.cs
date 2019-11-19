@@ -1,10 +1,11 @@
-﻿using DasikAI.Scripts.Controller;
-using DasikAI.Scripts.Data.Graph.Base;
+﻿using DasikAI.Controller;
+using DasikAI.Data.Graph.Base;
+using DasikAI.Data.Graph.Base.Blocks;
 using UnityEditor;
 using UnityEngine;
 using XNodeEditor;
 
-namespace Assets.DasikAI.Scripts.Data.Graph.Editor
+namespace DasikAI.Data.Graph.Editor
 {
 	[CustomNodeEditor(typeof(AIBlock))]
 	public class AIBlockEditor : NodeEditor
@@ -28,7 +29,8 @@ namespace Assets.DasikAI.Scripts.Data.Graph.Editor
 			var node = target as AIBlock;
 			var graph = node.graph as AIGraph;
 			if (graph.Root != node)
-				if (GUILayout.Button("Set as root")) graph.Root = node;
+				if (GUILayout.Button("Set as root"))
+					graph.Root = node;
 		}
 
 		public override Color GetTint()

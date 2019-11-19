@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace DasikAI.Scripts.Controller
+namespace DasikAI.Controller
 {
-	public class AgentController : MonoBehaviour
+	[RequireComponent(typeof(Rigidbody2D))]
+	public abstract class AgentController : MonoBehaviour
 	{
 		private Transform _transform;
 		public Transform Transform

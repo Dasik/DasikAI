@@ -1,39 +1,33 @@
-﻿using DasikAI.Scripts.Controller;
-using DasikAI.Scripts.Data.CustomTypes;
-using DasikAI.Scripts.Data.Graph.Attributes;
-using DasikAI.Scripts.Data.Graph.Base;
-using DasikAI.Scripts.Data.Graph.Nodes.DSO;
+﻿using System;
+using DasikAI.Controller;
+using DasikAI.Data.CustomTypes;
+using DasikAI.Data.Graph.Attributes;
+using DasikAI.Data.Graph.Base;
+using DasikAI.Data.Graph.Base.Blocks;
+using DasikAI.Data.Graph.Base.DSO;
+using DasikAI.Data.Graph.Nodes.DSO;
 using UnityEngine;
 using XNode;
 
-namespace DasikAI.Scripts.Data.Graph.Nodes.Checks
+namespace DasikAI.Data.Graph.Nodes.Checks
 {
+	[Serializable]
 	[AINode("Checks/AnyState")]
 	public class AnyState : AIBlockCheck
 	{
-		[SerializeField] private StatesEnum _state = new StatesEnum();
+		[SerializeField] private StatesEnum _state;
 
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
 
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
-			base.Initialize(controller);
-			IDataStoreObject dso;
-			if (controller.GraphBehaviourController.SharedStoreObjects.ContainsKey(typeof(StateDSO)))
-			{
-				dso = controller.GraphBehaviourController.SharedStoreObjects[typeof(StateDSO)];
-				return dso;
-			}
-
-			dso = new StateDSO();
-			controller.GraphBehaviourController.SharedStoreObjects.Add(typeof(StateDSO), dso);
-			return dso;
+			return controller.GraphBehaviourController.SharedStoreObjects[typeof(StateDSO)];
 		}
 
 		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			var currentState = ((StateDSO)dataStoreObject).State;
+			var currentState = ((StateDSO) dataStoreObject).State;
 			return _state.SelectedValue == currentState ? @true : @false;
 		}
 	}
