@@ -7,6 +7,7 @@ namespace DasikAI.Data.Graph.Base.Blocks
 {
 	public abstract class AIBlockCheck : AINode
 	{
+		[Input(ShowBackingValue.Always)] public AINode[] Parent = new AINode[1];
 		public override object GetValue(XNode.NodePort port)
 		{
 			var result = this as AINode;

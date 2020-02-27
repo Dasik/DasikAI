@@ -15,7 +15,7 @@ namespace DasikAI.Data.Graph.Nodes.Blocks
 
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
-			return controller.GraphBehaviourController.SharedStoreObjects[typeof(StateDSO)];
+			return controller.GraphController.SharedStoreObjects[typeof(StateDSO)];
 		}
 
 		public override IDataStoreObject DoWork(IDataStoreObject dataStoreObject, AgentController controller)

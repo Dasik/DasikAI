@@ -1,9 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace DasikAI.Controller
 {
-	[RequireComponent(typeof(Rigidbody2D))]
 	public abstract class AgentController : MonoBehaviour
 	{
 		private Transform _transform;
@@ -17,31 +15,15 @@ namespace DasikAI.Controller
 			}
 		}
 
-		public Vector2 Position2d
-		{
-			get { return Transform.position; }
-		}
+		private AIGraphBehaviourController _graphController;
 
-		private Rigidbody2D _rigidbody2D;
-		public Rigidbody2D Rigidbody2D
+		public AIGraphBehaviourController GraphController
 		{
 			get
 			{
-				if (_rigidbody2D == null)
-					_rigidbody2D = GetComponent<Rigidbody2D>();
-				return _rigidbody2D;
-			}
-		}
-
-		private AIGraphBehaviourController _graphBehaviourController;
-
-		public AIGraphBehaviourController GraphBehaviourController
-		{
-			get
-			{
-				if (_graphBehaviourController == null)
-					_graphBehaviourController = GetComponent<AIGraphBehaviourController>();
-				return _graphBehaviourController;
+				if (_graphController == null)
+					_graphController = GetComponent<AIGraphBehaviourController>();
+				return _graphController;
 			}
 		}
 	}

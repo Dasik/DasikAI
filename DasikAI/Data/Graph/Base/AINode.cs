@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using DasikAI.Controller;
 using DasikAI.Data.Graph.Base.DSO;
 using XNode;
@@ -9,8 +10,6 @@ namespace DasikAI.Data.Graph.Base
 {
 	public abstract class AINode : Node
 	{
-		[Input(ShowBackingValue.Always)] public AINode[] Parent = new AINode[1];
-
 		public virtual void Enable(IDataStoreObject dataStoreObject, AgentController controller)
 		{
 		}
@@ -35,8 +34,9 @@ namespace DasikAI.Data.Graph.Base
 		{
 			var spaceIndex = port.fieldName.IndexOf(" ");
 			var field = GetType().GetField(port.fieldName.Contains(" ")
-				? port.fieldName.Substring(0, spaceIndex)
-				: port.fieldName);
+					? port.fieldName.Substring(0, spaceIndex)
+					: port.fieldName,
+				BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 			if (field.FieldType.IsArray)
 			{
 				if (port.IsInput)

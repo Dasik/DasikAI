@@ -22,14 +22,14 @@ namespace DasikAI.Data.Graph.Nodes.Checks
 		{
 			base.Initialize(controller);
 			IDataStoreObject dso;
-			if (controller.GraphBehaviourController.SharedStoreObjects.ContainsKey(typeof(StateDSO)))
+			if (controller.GraphController.SharedStoreObjects.ContainsKey(typeof(StateDSO)))
 			{
-				dso = controller.GraphBehaviourController.SharedStoreObjects[typeof(StateDSO)];
+				dso = controller.GraphController.SharedStoreObjects[typeof(StateDSO)];
 				return dso;
 			}
 
 			dso = new StateDSO();
-			controller.GraphBehaviourController.SharedStoreObjects.Add(typeof(StateDSO), dso);
+			controller.GraphController.SharedStoreObjects.Add(typeof(StateDSO), dso);
 			return dso;
 		}
 

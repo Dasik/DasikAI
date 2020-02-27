@@ -22,7 +22,7 @@ namespace DasikAI.Data.Graph.Nodes.Checks
 
 		public override IDataStoreObject Initialize(AgentController controller)
 		{
-			return controller.GraphBehaviourController.SharedStoreObjects[typeof(StateDSO)];
+			return controller.GraphController.SharedStoreObjects[typeof(StateDSO)];
 		}
 
 		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)

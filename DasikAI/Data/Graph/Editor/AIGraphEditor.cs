@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using DasikAI.Data.Graph.Attributes;
 using DasikAI.Data.Graph.Base;
 using DasikAI.Data.Graph.Base.ParamSources;
@@ -15,7 +16,7 @@ namespace DasikAI.Data.Graph.Editor
 		public override void OnOpen()
 		{
 			base.OnOpen();
-			base.window.titleContent = new GUIContent("DasikAI");
+			base.window.titleContent = new GUIContent("Dasik Behaviour Tree");
 		}
 
 		/// <summary> 
@@ -40,9 +41,55 @@ namespace DasikAI.Data.Graph.Editor
 			//	return color;
 			//}
 			var color = base.GetPortColor(port);
-			if (port.node.GetType().IsAssignableFromGeneric(typeof(ParamSource<>)))
+			if (IsParamSource(port.node.GetType())
+			|| (port.IsConnected && IsParamSource(port.Connection.node.GetType())))
 				color.a *= 0.1f;
 			return color;
+		}
+
+		public override Color GetTypeColor(Type type)
+		{
+			var color = base.GetTypeColor(type);
+			if (IsParamSource(type))
+				color.a *= 0.1f;
+			return color;
+		}
+		
+		public override Gradient GetNoodleGradient(NodePort output, NodePort input)
+		{
+			Gradient grad = new Gradient();
+
+			// If dragging the noodle, draw solid, slightly transparent
+			if (input == null)
+			{
+				Color a = GetTypeColor(output.ValueType);
+				grad.SetKeys(
+					new[] { new GradientColorKey(a, 0f) },
+					new[] { new GradientAlphaKey(0.6f, 0f) }
+				);
+			}
+			// If normal, draw gradient fading from one input color to the other
+			else
+			{
+				Color a = GetTypeColor(output.ValueType);
+				Color b = GetTypeColor(input.ValueType);
+				// If any port is hovered, tint white
+				if (window.hoveredPort == output || window.hoveredPort == input)
+				{
+					a = Color.Lerp(a, Color.white, 0.8f);
+					b = Color.Lerp(b, Color.white, 0.8f);
+				}
+				grad.SetKeys(
+					new[] { new GradientColorKey(a, 0f), new GradientColorKey(b, 1f) },
+					new[] { new GradientAlphaKey(a.a, 0f), new GradientAlphaKey(b.a, 1f) }
+				);
+			}
+			return grad;
+		}
+
+		protected virtual bool IsParamSource(Type type)
+		{
+			return type.IsAssignableFromGeneric(typeof(ParamSource<>));
 		}
 	}
 }

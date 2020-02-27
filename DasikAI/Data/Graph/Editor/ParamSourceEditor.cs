@@ -4,7 +4,7 @@ using XNodeEditor;
 
 namespace DasikAI.Data.Graph.Editor
 {
-	[NodeEditor.CustomNodeEditorAttribute(typeof(ParamSource<>))]
+	[NodeEditor.CustomNodeEditor(typeof(ParamSource))]
 	public class ParamSourceEditor : NodeEditor
 	{
 		public override Color GetTint()

@@ -1,19 +1,26 @@
-﻿using DasikAI.Controller;
+﻿using System;
+using System.Collections.Generic;
+using DasikAI.Controller;
+using DasikAI.Data.Graph.Base.DSO;
 using XNode;
 
 namespace DasikAI.Data.Graph.Base.ParamSources
 {
-	[System.Serializable]
-	public abstract class ParamSource<T> : Node
+	[Serializable]
+	public abstract class ParamSource : AINode
 	{
 		[Node.Output(backingValue = ShowBackingValue.Unconnected)]
 		public AINode Consumer;
 
-		public abstract T GetParam(AgentController agentController);
-
-		public override object GetValue(NodePort port)
+		public override IEnumerable<AINode> Next(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			return this;
+			throw new NotImplementedException();
 		}
+	}
+
+	[Serializable]
+	public abstract class ParamSource<T> : ParamSource
+	{
+		public abstract T GetParam(AgentController agentController);
 	}
 }
