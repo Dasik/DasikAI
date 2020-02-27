@@ -22,18 +22,18 @@ namespace DasikAI.Example.Data.Graph.Nodes.Blocks
 
 		public override IDataStoreObject Enter(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			var dso = (SingleValueDSO<float>) dataStoreObject;
+			var dso = (SingleValueDSO<float>)dataStoreObject;
 			dso.Value = Time.time;
 			return base.Enter(dataStoreObject, controller);
 		}
 
 		public override IDataStoreObject DoWork(IDataStoreObject dataStoreObject, AgentController controller)
 		{
-			var dso = (SingleValueDSO<float>) dataStoreObject;
+			var dso = (SingleValueDSO<float>)dataStoreObject;
 			if (Time.time - dso.Value < _coolingTime)
 				return dso;
-			var bullet = Instantiate(_bullet, controller.Position2d, Quaternion.identity);
-			Destroy(bullet,1f);
+			var bullet = Instantiate(_bullet, ((AgentAIController)controller).Position2d, Quaternion.identity);
+			Destroy(bullet, 1f);
 			var bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
 			var force = (PlayerController.Instance.Position2d - bulletRigidbody.position).normalized * _force;
 			bulletRigidbody.AddForce(force, ForceMode2D.Impulse);

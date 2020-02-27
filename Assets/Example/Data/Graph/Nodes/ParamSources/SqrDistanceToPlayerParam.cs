@@ -1,6 +1,7 @@
 ﻿using DasikAI.Controller;
 using DasikAI.Data.Graph.Attributes;
 using DasikAI.Data.Graph.Base.ParamSources;
+using UnityEngine;
 
 namespace DasikAI.Example.Data.Graph.Nodes.ParamSources
 {
@@ -9,7 +10,7 @@ namespace DasikAI.Example.Data.Graph.Nodes.ParamSources
 	{
 		public override float GetParam(AgentController agentController)
 		{
-			var distance = (agentController.Position2d - PlayerController.Instance.Position2d).sqrMagnitude;
+			var distance = (((AgentAIController)agentController).Position2d - PlayerController.Instance.Position2d).sqrMagnitude;
 			return distance;
 		}
 	}

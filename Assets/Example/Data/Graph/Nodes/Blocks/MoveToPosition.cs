@@ -37,14 +37,15 @@ namespace DasikAI.Example.Data.Graph.Nodes.Blocks
 			return base.Enter(dataStoreObject, controller);
 		}
 
-		public override IDataStoreObject DoWork(IDataStoreObject dataStoreObject, AgentController controller)
+		public override IDataStoreObject DoWork(IDataStoreObject dataStoreObject, AgentController agentController)
 		{
-			if (!(controller is IMovementController))
+			if (!(agentController is IMovementController))
 			{
-				Debug.LogError("AgentController must be instance of IMovementController", controller);
+				Debug.LogError("AgentController must be instance of IMovementController", agentController);
 			}
 
 			var dso = (MoveToPlayerDSO) dataStoreObject;
+			var controller = ((AgentAIController) agentController);
 			if (dso.PathTask != null)
 			{
 				switch (dso.PathTask.Status)
