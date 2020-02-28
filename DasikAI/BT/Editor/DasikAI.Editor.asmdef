@@ -1,0 +1,12 @@
+﻿{
+    "name": "DasikAI.Editor",
+    "references": [
+        "DasikAI.BT",
+        "DasikAI.Common",
+        "XNode",
+        "XNodeEditor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}

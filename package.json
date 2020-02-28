@@ -1,10 +1,10 @@
 {
     "name": "com.dasik.ai",
-    "displayName": "AI Behaviour tree",
+    "displayName": "DasikAI: Behaviour tree and Utility AI",
     "version": "0.5.0",
     "unity": "2018.1",
-    "description": "Behaviour tree for Unity",
-    "keywords": ["ai", "behaviour", "graph"],
+    "description": "Behaviour tree and Utility AI for Unity",
+    "keywords": ["ai", "behaviour", "behaviour tree", "Utility AI", "Utility System", "graph"],
     "category": "AI",
     "dependencies": {
         "com.github.siccity.xnode": "https://github.com/siccity/xNode.git"

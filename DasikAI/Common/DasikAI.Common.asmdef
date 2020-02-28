@@ -1,9 +1,6 @@
 {
-    "name": "DasikAI",
-    "references": [
-        "XNode",
-        "XNodeEditor"
-    ],
+    "name": "DasikAI.Common",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

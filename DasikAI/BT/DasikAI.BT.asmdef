@@ -1,6 +1,8 @@
 {
-    "name": "DasikAI",
+    "name": "DasikAI.BT",
     "references": [
+        "DasikAI",
+        "DasikAI.Common",
         "XNode",
         "XNodeEditor"
     ],
