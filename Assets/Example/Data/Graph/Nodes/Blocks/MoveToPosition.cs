@@ -1,11 +1,11 @@
 ﻿using System;
 using Dasik.PathFinder;
 using Dasik.PathFinder.Task;
-using DasikAI.Controller;
-using DasikAI.Data.Graph.Attributes;
-using DasikAI.Data.Graph.Base.Blocks;
-using DasikAI.Data.Graph.Base.DSO;
-using DasikAI.Data.Graph.Base.ParamSources;
+using DasikAI.Common.Controller;
+using DasikAI.Common.Attributes;
+using DasikAI.BT.Base.Blocks;
+using DasikAI.Common.DSO;
+using DasikAI.BT.Base.ParamSources;
 using DasikAI.Example.Controller;
 using DasikAI.Example.Data.Graph.Nodes.DSO;
 using UnityEngine;

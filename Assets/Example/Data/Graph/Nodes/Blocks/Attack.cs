@@ -1,8 +1,8 @@
-﻿using DasikAI.Controller;
-using DasikAI.Data.Graph.Attributes;
-using DasikAI.Data.Graph.Base.Blocks;
-using DasikAI.Data.Graph.Base.DSO;
-using DasikAI.Data.Graph.Nodes.DSO;
+﻿using DasikAI.Common.Controller;
+using DasikAI.Common.Attributes;
+using DasikAI.BT.Base.Blocks;
+using DasikAI.Common.DSO;
+using DasikAI.BT.Nodes.DSO;
 using UnityEngine;
 
 namespace DasikAI.Example.Data.Graph.Nodes.Blocks

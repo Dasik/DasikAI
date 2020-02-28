@@ -1,6 +1,6 @@
-﻿using DasikAI.Controller;
-using DasikAI.Data.Graph.Attributes;
-using DasikAI.Data.Graph.Base.ParamSources;
+﻿using DasikAI.Common.Controller;
+using DasikAI.Common.Attributes;
+using DasikAI.BT.Base.ParamSources;
 using UnityEngine;
 
 namespace DasikAI.Example.Data.Graph.Nodes.ParamSources

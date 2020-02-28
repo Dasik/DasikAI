@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.dasik.ai": "https://github.com/Dasik/DasikAI.git",
+    "com.dasik.ai": "file:F:/Development/Gamedev/DasikAI",
     "com.dasik.pathfinding": "https://github.com/Dasik/PathFindingProject.git",
     "com.github.siccity.xnode": "https://github.com/siccity/xNode.git",
     "com.unity.2d.sprite": "1.0.0",
