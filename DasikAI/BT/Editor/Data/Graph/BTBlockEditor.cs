@@ -1,20 +1,21 @@
 ﻿using DasikAI.Common.Controller;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
+using DasikAI.BT.Controller;
 using UnityEditor;
 using UnityEngine;
 using XNodeEditor;
 
 namespace DasikAI.BT.Editor.Data.Graph
 {
-	[CustomNodeEditor(typeof(AIBlock))]
-	public class AIBlockEditor : NodeEditor
+	[CustomNodeEditor(typeof(BTBlock))]
+	public class BTBlockEditor : NodeEditor
 	{
 		public override void OnHeaderGUI()
 		{
 			GUI.color = Color.white;
-			var node = target as AIBlock;
-			var graph = node.graph as AIGraph;
+			var node = target as BTBlock;
+			var graph = node.graph as BTGraph;
 			if (graph.Root == node) GUI.color = Color.blue;
 			string title = target.name;
 			if (graph.Root == node)
@@ -26,8 +27,8 @@ namespace DasikAI.BT.Editor.Data.Graph
 		public override void OnBodyGUI()
 		{
 			base.OnBodyGUI();
-			var node = target as AIBlock;
-			var graph = node.graph as AIGraph;
+			var node = target as BTBlock;
+			var graph = node.graph as BTGraph;
 			if (graph.Root != node)
 				if (GUILayout.Button("Set as root"))
 					graph.Root = node;
@@ -37,8 +38,8 @@ namespace DasikAI.BT.Editor.Data.Graph
 		{
 			if (Selection.activeGameObject != null)
 			{
-				var node = target as AINode;
-				var graphBehaviour = Selection.activeGameObject.GetComponent<AIGraphBehaviourController>();
+				var node = target as BTNode;
+				var graphBehaviour = Selection.activeGameObject.GetComponent<BtGraphController>();
 				if (graphBehaviour != null && graphBehaviour.ActiveNodes.Contains(node))
 				{
 					return Color.green;

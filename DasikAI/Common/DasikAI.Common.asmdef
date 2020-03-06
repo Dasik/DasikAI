@@ -1,6 +1,8 @@
 {
     "name": "DasikAI.Common",
-    "references": [],
+    "references": [
+        "XNode"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

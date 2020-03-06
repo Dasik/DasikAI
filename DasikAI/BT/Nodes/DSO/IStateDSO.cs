@@ -1,6 +1,7 @@
 ﻿using System;
+using DasikAI.Common.Base.DSO;
 
-namespace DasikAI.Common.DSO
+namespace DasikAI.BT.Nodes.DSO
 {
 	/// <summary>
 	/// 

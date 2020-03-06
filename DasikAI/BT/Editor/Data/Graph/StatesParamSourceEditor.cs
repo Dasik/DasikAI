@@ -10,7 +10,7 @@ namespace DasikAI.BT.Editor.Data.Graph
 		public override void OnBodyGUI()
 		{
 			base.OnBodyGUI();
-			var graph = target.graph as AIGraph;
+			var graph = target.graph as BTGraph;
 			if (GUILayout.Button("Update")) graph.UpdateStates();
 		}
 	}

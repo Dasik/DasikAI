@@ -3,21 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DasikAI.Common.Controller;
-using DasikAI.Common.DSO;
+using DasikAI.Common.Base.DSO;
+using DasikAI.Common.Base;
 using XNode;
 
 namespace DasikAI.BT.Base
 {
-	public abstract class AINode : Node
+	public abstract class BTNode : AINode
 	{
-		public virtual void Enable(IDataStoreObject dataStoreObject, AgentController controller)
-		{
-		}
-
-		public virtual void Disable(IDataStoreObject dataStoreObject, AgentController controller)
-		{
-		}
-
 		public override void OnCreateConnection(NodePort from, NodePort to)
 		{
 			base.OnCreateConnection(from, to);
@@ -89,25 +82,6 @@ namespace DasikAI.BT.Base
 			return this;
 		}
 
-		public virtual IDataStoreObject Initialize(AgentController controller)
-		{
-			return null;
-		}
-
-		public virtual IDataStoreObject Enter(IDataStoreObject dataStoreObject, AgentController controller)
-		{
-			return dataStoreObject;
-		}
-
-		public abstract IEnumerable<AINode> Next(IDataStoreObject dataStoreObject, AgentController controller);
-
-		public virtual IDataStoreObject Exit(IDataStoreObject dataStoreObject, AgentController controller)
-		{
-			return dataStoreObject;
-		}
-
-		public virtual void Dispose(IDataStoreObject dataStoreObject)
-		{
-		}
+		public abstract IEnumerable<AINode> Next(Context context);
 	}
 }

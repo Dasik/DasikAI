@@ -2,17 +2,18 @@
 using DasikAI.Common.Attributes;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
-using DasikAI.Common.DSO;
-using XNode;
+using DasikAI.Common.Base.DSO;
+  using DasikAI.Common.Base;
+  using XNode;
 
 namespace DasikAI.BT.Nodes.Checks
 {
 	[AINode("Checks/EmptyCheck")]
-	public class EmptyCheck : AIBlockCheck
+	public class EmptyCheck : BTBlockCheck
 	{
 		[Node.Output] public AINode next;
 
-		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
+		protected override AINode NextOne(Context context)
 		{
 			return next;
 		}

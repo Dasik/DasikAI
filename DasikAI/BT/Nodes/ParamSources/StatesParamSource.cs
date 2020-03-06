@@ -1,24 +1,32 @@
 using DasikAI.Common.Controller;
 using DasikAI.BT.CustomTypes;
+using DasikAI.BT.Nodes.DSO;
 using DasikAI.Common.Attributes;
-using DasikAI.BT.Base.ParamSources;
+using DasikAI.Common.Base.ParamSources;
+using DasikAI.Common.Base;
 using UnityEngine;
 
 namespace DasikAI.BT.Nodes.ParamSources
 {
-	[System.Serializable]
-	[AINode("Params/States")]
-	public class StatesParamSource : ParamSource<StatesEnum>
-	{
-		[SerializeField] public string[] StatesList = {"Idle"};
+    [System.Serializable]
+    [AINode("Params/States")]
+    public class StatesParamSource : ParamSource<StatesEnum>
+    {
+        [SerializeField] public string[] StatesList = {"Idle"};
 
-		[HideInInspector] public StatesEnum States => new StatesEnum {Values = StatesList};
+        [HideInInspector] public StatesEnum States => new StatesEnum {Values = StatesList};
 
-		[SerializeField] public StatesEnum InitialState;
+        [SerializeField] public StatesEnum InitialState;
 
-		public override StatesEnum GetParam(AgentController agentController)
-		{
-			return States;
-		}
-	}
+        public override StatesEnum GetParam(Context context)
+        {
+            return States;
+        }
+
+        public override void Initialize(Context context)
+        {
+            base.Initialize(context);
+            context.SharedDSO.Add(typeof(StateDSO), new StateDSO() {State = InitialState.SelectedValue});
+        }
+    }
 }

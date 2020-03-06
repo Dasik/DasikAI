@@ -2,44 +2,43 @@
 using DasikAI.Common.Attributes;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
-using DasikAI.Common.DSO;
+using DasikAI.Common.Base.DSO;
 using DasikAI.BT.Nodes.DSO;
-using UnityEngine;
+  using DasikAI.Common.Base;
+  using UnityEngine;
 
 namespace DasikAI.BT.Nodes.Checks
 {
 	[AINode("Checks/TimerCheck")]
-	public class TimerCheck : AIBlockCheck
+	public class TimerCheck : BTBlockCheck
 	{
 		[SerializeField] private float _time = 0;
 
 		[Output] public AINode IsElapsed;
 		[Output] public AINode IsNotElapsed;
 
-		public override IDataStoreObject Initialize(AgentController controller)
+		public override void Initialize(Context context)
 		{
-			base.Initialize(controller);
+			base.Initialize(context);
 			var dso = new SingleValueDSO<float>();
-			return (IDataStoreObject)dso;
+			context.CurrentDSO = dso;
 		}
 
-		public override IDataStoreObject Enter(IDataStoreObject dataStoreObject, AgentController controller)
+		public override void Enter(Context context)
 		{
-			var dso = (SingleValueDSO<float>)dataStoreObject;
+			var dso = (SingleValueDSO<float>)context.CurrentDSO;
 			dso.Value = Time.time;
-			return dso;
 		}
 
-		public override IDataStoreObject Exit(IDataStoreObject dataStoreObject, AgentController controller)
+		public override void Exit(Context context)
 		{
-			var dso = (SingleValueDSO<float>)dataStoreObject;
+			var dso = (SingleValueDSO<float>)context.CurrentDSO;
 			dso.Value = 0f;
-			return dso;
 		}
 
-		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
+		protected override AINode NextOne(Context context)
 		{
-			var dso = (SingleValueDSO<float>)dataStoreObject;
+			var dso = (SingleValueDSO<float>)context.CurrentDSO;
 			if (Time.time - dso.Value > _time)
 				return IsNotElapsed;
 			return IsElapsed;

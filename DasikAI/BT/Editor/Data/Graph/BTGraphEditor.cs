@@ -2,7 +2,7 @@
 using System.Linq;
 using DasikAI.Common.Attributes;
 using DasikAI.BT.Base;
-using DasikAI.BT.Base.ParamSources;
+using DasikAI.Common.Base.ParamSources;
 using DasikAI.Common.Utility;
 using UnityEngine;
 using XNode;
@@ -10,8 +10,8 @@ using XNodeEditor;
 
 namespace DasikAI.BT.Editor.Data.Graph
 {
-	[CustomNodeGraphEditor(typeof(AIGraph))]
-	public class AIGraphEditor : NodeGraphEditor
+	[CustomNodeGraphEditor(typeof(BTGraph))]
+	public class BTGraphEditor : NodeGraphEditor
 	{
 		public override void OnOpen()
 		{

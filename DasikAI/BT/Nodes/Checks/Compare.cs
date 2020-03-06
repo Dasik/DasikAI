@@ -3,15 +3,16 @@ using DasikAI.Common.Controller;
 using DasikAI.Common.Attributes;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
-using DasikAI.Common.DSO;
-using DasikAI.BT.Base.ParamSources;
-using UnityEngine;
+using DasikAI.Common.Base.DSO;
+using DasikAI.Common.Base.ParamSources;
+  using DasikAI.Common.Base;
+  using UnityEngine;
 using XNode;
 
 namespace DasikAI.BT.Nodes.Checks
 {
 	[AINode("Checks/Compare")]
-	public class Compare : AIBlockCheck
+	public class Compare : BTBlockCheck
 	{
 		[Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)]
 		public FloatParamSource ParamSource;
@@ -22,9 +23,9 @@ namespace DasikAI.BT.Nodes.Checks
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
 
-		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
+		protected override AINode NextOne(Context context)
 		{
-			var param = ParamSource.GetParam(controller);
+			var param = context.GetParam(ParamSource);
 			var result = false;
 			switch (OperatorType)
 			{

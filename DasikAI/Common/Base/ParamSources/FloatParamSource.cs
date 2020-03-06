@@ -1,4 +1,4 @@
-﻿namespace DasikAI.BT.Base.ParamSources
+﻿namespace DasikAI.Common.Base.ParamSources
 {
 	[System.Serializable]
 	public abstract class FloatParamSource : ParamSource<float>

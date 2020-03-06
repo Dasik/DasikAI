@@ -9,17 +9,17 @@ using XNode;
 
 namespace DasikAI.BT.Base
 {
-	[CreateAssetMenu(fileName = "New AI State Graph", menuName = "Dasik AI/AI State Graph")]
-	public class AIGraph : NodeGraph
+	[CreateAssetMenu(fileName = "New AI BT Graph", menuName = "Dasik AI/BT Graph")]
+	public class BTGraph : NodeGraph
 	{
-		public AIBlock Root;
+		public BTBlock Root;
 		public StatesParamSource StatesSource;
 
 		public override Node AddNode(Type type)
 		{
 			Node node = base.AddNode(type);
 			if (Root == null)
-				Root = node as AIBlock;
+				Root = node as BTBlock;
 
 			if (type == typeof(StatesParamSource))
 			{
@@ -40,7 +40,7 @@ namespace DasikAI.BT.Base
 		public override void RemoveNode(Node node)
 		{
 			if (node == Root)
-				Root = nodes.FirstOrDefault() as AIBlock;
+				Root = nodes.FirstOrDefault() as BTBlock;
 			if (node == StatesSource)
 			{
 				StatesSource = null;

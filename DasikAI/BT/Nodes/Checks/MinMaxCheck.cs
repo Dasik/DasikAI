@@ -2,19 +2,20 @@
 using DasikAI.Common.Attributes;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
-using DasikAI.Common.DSO;
-using DasikAI.BT.Base.ParamSources;
+using DasikAI.Common.Base.DSO;
+using DasikAI.Common.Base.ParamSources;
 using DasikAI.BT.Nodes.DSO;
-using UnityEngine;
+  using DasikAI.Common.Base;
+  using UnityEngine;
 using XNode;
 
 namespace DasikAI.BT.Nodes.Checks
 {
 	[AINode("Checks/MinMaxCheck")]
-	public class MinMaxCheck : AIBlockCheck
+	public class MinMaxCheck : BTBlockCheck
 	{
 		[Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)]
-		public FloatParamSource ParamSource;
+		public FloatParamSource paramSource;
 
 		[SerializeField] private float _min = 0;
 		public float Min
@@ -32,17 +33,17 @@ namespace DasikAI.BT.Nodes.Checks
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
 
-		public override IDataStoreObject Initialize(AgentController controller)
+		public override void Initialize(Context context)
 		{
-			base.Initialize(controller);
+			base.Initialize(context);
 			var dso = new MinMaxDSO { Max = Max, Min = Min };
-			return (IDataStoreObject)dso;
+			context.CurrentDSO = dso;
 		}
 
-		public override AINode NextOne(IDataStoreObject dataStoreObject, AgentController controller)
+		protected override AINode NextOne(Context context)
 		{
-			var dso = (MinMaxDSO)dataStoreObject;
-			var param = ParamSource.GetParam(controller);
+			var dso = (MinMaxDSO)context.CurrentDSO;
+			var param = context.GetParam(paramSource);
 			if (param >= dso.Min && param <= dso.Max)
 				return @true;
 			return @false;

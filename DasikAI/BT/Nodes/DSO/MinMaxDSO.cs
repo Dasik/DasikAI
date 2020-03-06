@@ -1,4 +1,4 @@
-﻿﻿﻿using DasikAI.Common.DSO;
+﻿﻿﻿using DasikAI.Common.Base.DSO;
 
 namespace DasikAI.BT.Nodes.DSO
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DasikAI.Common.DSO
+namespace DasikAI.Common.Base.DSO
 {
 	public interface IDataStoreObject { }
 
