@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using XNode;
 
-namespace DasikAI.Common.Base
+namespace DasikAI.UAI.Base
 {
     [CreateAssetMenu(fileName = "New Utility AI Graph", menuName = "Dasik AI/Utility AI Graph")]
-    public class AIGraph: NodeGraph
+    public class UAIGraph: NodeGraph
     {
         
     }

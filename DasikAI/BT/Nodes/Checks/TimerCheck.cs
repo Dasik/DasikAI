@@ -17,20 +17,20 @@ namespace DasikAI.BT.Nodes.Checks
 		[Output] public AINode IsElapsed;
 		[Output] public AINode IsNotElapsed;
 
-		public override void Initialize(Context context)
+		public override void OnInitialize(Context context)
 		{
-			base.Initialize(context);
+			base.OnInitialize(context);
 			var dso = new SingleValueDSO<float>();
 			context.CurrentDSO = dso;
 		}
 
-		public override void Enter(Context context)
+		public override void OnEnter(Context context)
 		{
 			var dso = (SingleValueDSO<float>)context.CurrentDSO;
 			dso.Value = Time.time;
 		}
 
-		public override void Exit(Context context)
+		public override void OnExit(Context context)
 		{
 			var dso = (SingleValueDSO<float>)context.CurrentDSO;
 			dso.Value = 0f;

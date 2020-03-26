@@ -4,7 +4,7 @@ using XNode;
 
 namespace DasikAI.Common.Controller
 {
-    public abstract class AgentController : MonoBehaviour
+    public abstract class AgentController : MonoBehaviour,IAgentController
     {
         private Transform _transform;
 

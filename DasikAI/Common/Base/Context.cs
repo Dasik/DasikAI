@@ -7,16 +7,16 @@ namespace DasikAI.Common.Base
 {
     public class Context
     {
-        public AgentController AgentController { get; }
+        public IAgentController AgentController { get; }
         public IDataStoreObject CurrentDSO { get; set; }
         public Dictionary<object, IDataStoreObject> SharedDSO { get; }
         public Dictionary<AINode, Context> Contexts { get; }
 
-        public Context(AgentController agentController, Dictionary<object, IDataStoreObject> sharedDso, Dictionary<AINode, Context> contexts)
+        public Context(IAgentController agentController, Dictionary<object, IDataStoreObject> sharedDso, Dictionary<AINode, Context> contexts)
         {
-            AgentController = agentController;
             SharedDSO = sharedDso;
             Contexts = contexts;
+            AgentController = agentController;
         }
 
         public T GetParam<T>(ParamSource<T> paramSource)

@@ -23,9 +23,9 @@ namespace DasikAI.BT.Nodes.ParamSources
             return States;
         }
 
-        public override void Initialize(Context context)
+        public override void OnInitialize(Context context)
         {
-            base.Initialize(context);
+            base.OnInitialize(context);
             context.SharedDSO.Add(typeof(StateDSO), new StateDSO() {State = InitialState.SelectedValue});
         }
     }

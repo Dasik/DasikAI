@@ -33,9 +33,9 @@ namespace DasikAI.BT.Nodes.Checks
 		[Node.Output] public AINode @true;
 		[Node.Output] public AINode @false;
 
-		public override void Initialize(Context context)
+		public override void OnInitialize(Context context)
 		{
-			base.Initialize(context);
+			base.OnInitialize(context);
 			var dso = new MinMaxDSO { Max = Max, Min = Min };
 			context.CurrentDSO = dso;
 		}

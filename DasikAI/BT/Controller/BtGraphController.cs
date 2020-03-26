@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base;
@@ -27,12 +28,11 @@ namespace DasikAI.BT.Controller
 
             foreach (var node in graph.nodes)
             {
-                var aiNode = node as AINode;
-                if (aiNode != null)
+                if (node is AINode aiNode)
                 {
-                    var context = new Context(agentController, SharedDso,Contexts);
+                    var context = new Context(agentController, SharedDso, Contexts);
                     Contexts.Add(aiNode, context);
-                    aiNode.Initialize(context);
+                    aiNode.OnInitialize(context);
                 }
             }
 
@@ -43,7 +43,7 @@ namespace DasikAI.BT.Controller
         {
             foreach (var activeBlock in ActiveNodes)
             {
-                activeBlock.Enable(Contexts[activeBlock]);
+                activeBlock.OnEnable(Contexts[activeBlock]);
             }
         }
 
@@ -51,7 +51,7 @@ namespace DasikAI.BT.Controller
         {
             foreach (var activeBlock in ActiveNodes)
             {
-                activeBlock.Enable(Contexts[activeBlock]);
+                activeBlock.OnEnable(Contexts[activeBlock]);
             }
         }
 
@@ -62,7 +62,7 @@ namespace DasikAI.BT.Controller
                 var aiNode = node as AINode;
                 if (aiNode != null)
                 {
-                    aiNode.Dispose(Contexts[aiNode]);
+                    aiNode.OnDispose(Contexts[aiNode]);
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace DasikAI.BT.Controller
                 }
                 else
                 {
-                    currentNode.Enter(currentContext);
+                    currentNode.OnEnter(currentContext);
                 }
 
                 currentActivatedNodes.Add(currentNode);
@@ -118,7 +118,7 @@ namespace DasikAI.BT.Controller
 
             foreach (var disabledBlock in ActiveNodes)
             {
-                disabledBlock.Exit(Contexts[disabledBlock]);
+                disabledBlock.OnExit(Contexts[disabledBlock]);
             }
 
             ActiveNodes = currentActivatedNodes;

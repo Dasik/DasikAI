@@ -4,27 +4,36 @@ namespace DasikAI.Common.Base
 {
     public abstract class AINode : Node
     {
-        public virtual void Initialize(Context context)
+        public virtual void OnInitialize(Context context)
         {
         }
 
-        public virtual void Enable(Context context)
+        protected virtual void OnEnable()
+        {
+            base.OnEnable();
+        }
+        
+        public virtual void OnEnable(Context context)
         {
         }
 
-        public virtual void Enter(Context context)
+        public virtual void OnEnter(Context context)
         {
         }
 
-        public virtual void Exit(Context context)
+        public virtual void OnExit(Context context)
         {
         }
 
-        public virtual void Disable(Context context)
+        protected virtual void OnDisable()
         {
         }
 
-        public virtual void Dispose(Context context)
+        public virtual void OnDisable(Context context)
+        {
+        }
+
+        public virtual void OnDispose(Context context)
         {
         }
     }
