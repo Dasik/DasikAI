@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -95,8 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8639a92488a13f48b228bff355054b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AiGraph: {fileID: 11400000, guid: 97ec470acc88c674580380ab3ab42e59, type: 2}
-  AgentController: {fileID: 7448654790213862781}
+  graph: {fileID: 11400000, guid: 97ec470acc88c674580380ab3ab42e59, type: 2}
 --- !u!114 &7448654790213862781
 MonoBehaviour:
   m_ObjectHideFlags: 0

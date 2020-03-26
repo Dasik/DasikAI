@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Dasik.PathFinder;
 using Dasik.PathFinder.Task;
-using DasikAI.Common.DSO;
+using DasikAI.Common.Base.DSO;
 
 namespace DasikAI.Example.Data.Graph.Nodes.DSO
 {
