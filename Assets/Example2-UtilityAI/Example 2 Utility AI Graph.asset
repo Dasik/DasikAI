@@ -1,0 +1,1210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9191130480232200044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255953d1da694415af0e8a4328502af3, type: 3}
+  m_Name: Character Position PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -232, y: -56}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: -9191130480232200044}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: A
+        node: {fileID: 5753929617700886752}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 5753929617700886752}
+--- !u!114 &-8894641062994383922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b117874781f6343941d896386caa23, type: 3}
+  m_Name: Follow MS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 584, y: 40}
+  ports:
+    keys:
+    - Values
+    - Consumer
+    values:
+    - _fieldName: Values
+      _node: {fileID: -8894641062994383922}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource[], DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 6993598829368929859}
+        reroutePoints: []
+      - fieldName: Consumer
+        node: {fileID: -1272890820506255652}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: -8894641062994383922}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Scorer
+        node: {fileID: 7248879369462227481}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 7248879369462227481}
+  Values:
+  - {fileID: 6993598829368929859}
+  - {fileID: -1272890820506255652}
+--- !u!114 &-7228514957876375012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197437e55dfa4cc6951533a44f325620, type: 3}
+  m_Name: Distance 100 CS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 376, y: -120}
+  ports:
+    keys:
+    - Value
+    - Consumer
+    values:
+    - _fieldName: Value
+      _node: {fileID: -7228514957876375012}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 5753929617700886752}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: -7228514957876375012}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Values
+        node: {fileID: 5388727720620057437}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 5388727720620057437}
+  Value: {fileID: 5753929617700886752}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 75
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 95
+      value: 70
+      inSlope: -0.10535758
+      outSlope: -0.10535758
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.038370214
+      outWeight: 0.5230542
+    - serializedVersion: 3
+      time: 100
+      value: 0
+      inSlope: -3.546983
+      outSlope: -3.546983
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.029083956
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-6433288715329558287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa0e991bb484d94fb9dec5c4013b7ac, type: 3}
+  m_Name: Cooling Time
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -168, y: -280}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: -6433288715329558287}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: coolingTime
+        node: {fileID: -2154791683255247709}
+        reroutePoints: []
+      - fieldName: CoolingTime
+        node: {fileID: -830988365970797544}
+        reroutePoints:
+        - {x: 128, y: -304}
+        - {x: 544, y: -320}
+        - {x: 880, y: -192}
+        - {x: 800, y: -112}
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -830988365970797544}
+  _value: 0.5
+--- !u!114 &-6195237820098434556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244833b4efb43a5438ed2b9f6c189f26, type: 3}
+  m_Name: Empty Action
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 776, y: -440}
+  ports:
+    keys:
+    - Scorer
+    values:
+    - _fieldName: Scorer
+      _node: {fileID: -6195237820098434556}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIScorer, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 4179337183242175594}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Scorer: {fileID: 4179337183242175594}
+--- !u!114 &-2841536217169349783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ac288678af4684995e9fb8b0d7cb07, type: 3}
+  m_Name: Player Position PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -184, y: 72}
+  ports:
+    keys:
+    - PlayerPS
+    - Consumer
+    values:
+    - _fieldName: PlayerPS
+      _node: {fileID: -2841536217169349783}
+      _typeQualifiedName: DasikAI.Example.UAINodes.ParamSources.PlayerPS, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 1007073536017136261}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: -2841536217169349783}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: B
+        node: {fileID: 5753929617700886752}
+        reroutePoints: []
+      - fieldName: PlayerPS
+        node: {fileID: 6452687950769596695}
+        reroutePoints: []
+      - fieldName: PositionPS
+        node: {fileID: 4179433488617665260}
+        reroutePoints:
+        - {x: 128, y: 400}
+        - {x: 704, y: 432}
+      - fieldName: PositionPS
+        node: {fileID: 6993598829368929859}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 0}
+  PlayerPS: {fileID: 1007073536017136261}
+--- !u!114 &-2154791683255247709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4666d1820ca540909d273694d7ef76d9, type: 3}
+  m_Name: Time Left To Next Shot PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 104, y: -296}
+  ports:
+    keys:
+    - coolingTime
+    - Consumer
+    values:
+    - _fieldName: coolingTime
+      _node: {fileID: -2154791683255247709}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -6433288715329558287}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: -2154791683255247709}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: 1546026141300187286}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 1546026141300187286}
+  coolingTime: {fileID: -6433288715329558287}
+--- !u!114 &-1272890820506255652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197437e55dfa4cc6951533a44f325620, type: 3}
+  m_Name: Distance 400 CS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: 56}
+  ports:
+    keys:
+    - Value
+    - Consumer
+    values:
+    - _fieldName: Value
+      _node: {fileID: -1272890820506255652}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 5753929617700886752}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: -1272890820506255652}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Values
+        node: {fileID: -8894641062994383922}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -8894641062994383922}
+  Value: {fileID: 5753929617700886752}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 0
+      inSlope: 50
+      outSlope: 50
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0
+      value: 50
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 103
+      weightedMode: 0
+      inWeight: 0.12200039
+      outWeight: 0.061431505
+    - serializedVersion: 3
+      time: 400
+      value: 0
+      inSlope: -1.1597006
+      outSlope: -1228800
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &-830988365970797544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c59a4ac510428abc6723ac64ed3c78, type: 3}
+  m_Name: Attack Action
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 872, y: -120}
+  ports:
+    keys:
+    - CoolingTime
+    - Target
+    - Scorer
+    - NextAction
+    values:
+    - _fieldName: CoolingTime
+      _node: {fileID: -830988365970797544}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -6433288715329558287}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Target
+      _node: {fileID: -830988365970797544}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Scorer
+      _node: {fileID: -830988365970797544}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIScorer, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 5388727720620057437}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextAction
+      _node: {fileID: -830988365970797544}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIAction, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: PreviousAction
+        node: {fileID: 449785269399569329}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Scorer: {fileID: 5388727720620057437}
+  CoolingTime: {fileID: -6433288715329558287}
+  Target: {fileID: -2841536217169349783}
+  NextAction: {fileID: 449785269399569329}
+  _bullet: {fileID: 3391595533454004941, guid: 2c4ba3d346c0b474b9eb1ec68e429332, type: 3}
+  _force: 10
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47b8a34145da2f43b27f42a1e9b5f79, type: 3}
+  m_Name: Example 2 Utility AI Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1007073536017136261}
+  - {fileID: -2841536217169349783}
+  - {fileID: 6036573555969082090}
+  - {fileID: -6195237820098434556}
+  - {fileID: 4179337183242175594}
+  - {fileID: 7248879369462227481}
+  - {fileID: -9191130480232200044}
+  - {fileID: 5753929617700886752}
+  - {fileID: -7228514957876375012}
+  - {fileID: -6433288715329558287}
+  - {fileID: 5388727720620057437}
+  - {fileID: -2154791683255247709}
+  - {fileID: 1546026141300187286}
+  - {fileID: -1272890820506255652}
+  - {fileID: 6452687950769596695}
+  - {fileID: -830988365970797544}
+  - {fileID: 449785269399569329}
+  - {fileID: 3754742125907236479}
+  - {fileID: 243571350041184155}
+  - {fileID: 4179433488617665260}
+  - {fileID: 6993598829368929859}
+  - {fileID: -8894641062994383922}
+--- !u!114 &243571350041184155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197437e55dfa4cc6951533a44f325620, type: 3}
+  m_Name: Search CS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 552, y: 280}
+  ports:
+    keys:
+    - Value
+    - Consumer
+    values:
+    - _fieldName: Value
+      _node: {fileID: 243571350041184155}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 3754742125907236479}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 243571350041184155}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Scorer
+        node: {fileID: 4179433488617665260}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 4179433488617665260}
+  Value: {fileID: 3754742125907236479}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 40
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 4.5
+      value: 45
+      inSlope: -0.7167874
+      outSlope: -0.7167874
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.032448024
+      outWeight: 1
+    - serializedVersion: 3
+      time: 5
+      value: 0
+      inSlope: -3.5538876
+      outSlope: -3.5538876
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06758003
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &449785269399569329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95f6ed609c034c0484fc97ff9e64348c, type: 3}
+  m_Name: Save Current Time
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1128, y: -8}
+  ports:
+    keys:
+    - NextAction
+    - Scorer
+    - PreviousAction
+    values:
+    - _fieldName: NextAction
+      _node: {fileID: 449785269399569329}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIAction, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Scorer
+      _node: {fileID: 449785269399569329}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIScorer, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: PreviousAction
+      _node: {fileID: 449785269399569329}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIAction[], DasikAI.UAI,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: NextAction
+        node: {fileID: -830988365970797544}
+        reroutePoints: []
+      - fieldName: NextAction
+        node: {fileID: 7248879369462227481}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Scorer: {fileID: 0}
+  PreviousAction:
+  - {fileID: -830988365970797544}
+  - {fileID: 7248879369462227481}
+  NextAction: {fileID: 0}
+--- !u!114 &1007073536017136261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95458ec730625584dbc982c359aff925, type: 3}
+  m_Name: Player PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -456, y: 88}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: 1007073536017136261}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: PlayerPS
+        node: {fileID: -2841536217169349783}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -2841536217169349783}
+--- !u!114 &1546026141300187286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 197437e55dfa4cc6951533a44f325620, type: 3}
+  m_Name: Cooling Scorer
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: -296}
+  ports:
+    keys:
+    - Value
+    - Consumer
+    values:
+    - _fieldName: Value
+      _node: {fileID: 1546026141300187286}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2154791683255247709}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 1546026141300187286}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Values
+        node: {fileID: 5388727720620057437}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 5388727720620057437}
+  Value: {fileID: -2154791683255247709}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1
+      value: 100
+      inSlope: -5
+      outSlope: Infinity
+      tangentMode: 1
+      weightedMode: 2
+      inWeight: 0.33333334
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 97
+      weightedMode: 3
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 5
+      value: 0
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 103
+      weightedMode: 1
+      inWeight: 0
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &3754742125907236479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e4e506c662442c38e2749a39150cce5, type: 3}
+  m_Name: Time Since Last Meet PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 296}
+  ports:
+    keys:
+    - lastMeetTime
+    - Consumer
+    values:
+    - _fieldName: lastMeetTime
+      _node: {fileID: 3754742125907236479}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 3754742125907236479}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: 243571350041184155}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 243571350041184155}
+  lastMeetTime: {fileID: 449785269399569329}
+--- !u!114 &4179337183242175594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4192f88ce18442239aaf8fe396904b56, type: 3}
+  m_Name: Empty Scorer
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 536, y: -456}
+  ports:
+    keys:
+    - Value
+    - Consumer
+    values:
+    - _fieldName: Value
+      _node: {fileID: 4179337183242175594}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 6036573555969082090}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 4179337183242175594}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Scorer
+        node: {fileID: -6195237820098434556}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -6195237820098434556}
+  Value: {fileID: 6036573555969082090}
+--- !u!114 &4179433488617665260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da553aef1494d838d2a53beca80eacf, type: 3}
+  m_Name: Search
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 840, y: 296}
+  ports:
+    keys:
+    - PositionPS
+    - NextAction
+    - Scorer
+    values:
+    - _fieldName: PositionPS
+      _node: {fileID: 4179433488617665260}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2841536217169349783}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextAction
+      _node: {fileID: 4179433488617665260}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIAction, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Scorer
+      _node: {fileID: 4179433488617665260}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIScorer, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 243571350041184155}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Scorer: {fileID: 243571350041184155}
+  PositionPS: {fileID: -2841536217169349783}
+  NextAction: {fileID: 0}
+--- !u!114 &5388727720620057437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b117874781f6343941d896386caa23, type: 3}
+  m_Name: Attack MS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: -264}
+  ports:
+    keys:
+    - Values
+    - Consumer
+    values:
+    - _fieldName: Values
+      _node: {fileID: 5388727720620057437}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource[], DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -7228514957876375012}
+        reroutePoints: []
+      - fieldName: Consumer
+        node: {fileID: 1546026141300187286}
+        reroutePoints: []
+      - fieldName: Consumer
+        node: {fileID: 6993598829368929859}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 5388727720620057437}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Scorer
+        node: {fileID: -830988365970797544}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -830988365970797544}
+  Values:
+  - {fileID: -7228514957876375012}
+  - {fileID: 1546026141300187286}
+  - {fileID: 6993598829368929859}
+--- !u!114 &5753929617700886752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e64677fbf214b569d81b3d3a9575a29, type: 3}
+  m_Name: Vector 2 Sqr Distance PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 72, y: -72}
+  ports:
+    keys:
+    - A
+    - B
+    - Consumer
+    values:
+    - _fieldName: A
+      _node: {fileID: 5753929617700886752}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -9191130480232200044}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: B
+      _node: {fileID: 5753929617700886752}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2841536217169349783}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 5753929617700886752}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: -1272890820506255652}
+        reroutePoints: []
+      - fieldName: Value
+        node: {fileID: -7228514957876375012}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -7228514957876375012}
+  A: {fileID: -9191130480232200044}
+  B: {fileID: -2841536217169349783}
+--- !u!114 &6036573555969082090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa0e991bb484d94fb9dec5c4013b7ac, type: 3}
+  m_Name: Constant Param Source
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 296, y: -456}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: 6036573555969082090}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Value
+        node: {fileID: 4179337183242175594}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 4179337183242175594}
+  _value: 10
+--- !u!114 &6452687950769596695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a66962bc05542f2bea772ac5da32d73, type: 3}
+  m_Name: Randomize Vector 2PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 120, y: 168}
+  ports:
+    keys:
+    - PlayerPS
+    - Consumer
+    values:
+    - _fieldName: PlayerPS
+      _node: {fileID: 6452687950769596695}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2841536217169349783}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 6452687950769596695}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: PositionPS
+        node: {fileID: 7248879369462227481}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 7248879369462227481}
+  PlayerPS: {fileID: -2841536217169349783}
+  _randomizedRadius: 3
+--- !u!114 &6993598829368929859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0deb0ac3ce3549d41b1f029eee231fa3, type: 3}
+  m_Name: Is Player Visible Param Source
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 72, y: -168}
+  ports:
+    keys:
+    - PositionPS
+    - Consumer
+    values:
+    - _fieldName: PositionPS
+      _node: {fileID: 6993598829368929859}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2841536217169349783}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Consumer
+      _node: {fileID: 6993598829368929859}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Values
+        node: {fileID: 5388727720620057437}
+        reroutePoints:
+        - {x: 368, y: -128}
+        - {x: 528, y: -160}
+      - fieldName: Values
+        node: {fileID: -8894641062994383922}
+        reroutePoints:
+        - {x: 375.19257, y: 17.391655}
+        - {x: 547.19257, y: 24.391655}
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -8894641062994383922}
+  PositionPS: {fileID: -2841536217169349783}
+--- !u!114 &7248879369462227481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da553aef1494d838d2a53beca80eacf, type: 3}
+  m_Name: Follow
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 840, y: 72}
+  ports:
+    keys:
+    - PositionPS
+    - Scorer
+    - NextAction
+    values:
+    - _fieldName: PositionPS
+      _node: {fileID: 7248879369462227481}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: 6452687950769596695}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Scorer
+      _node: {fileID: 7248879369462227481}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIScorer, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -8894641062994383922}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextAction
+      _node: {fileID: 7248879369462227481}
+      _typeQualifiedName: DasikAI.UAI.Nodes.Base.Blocks.UAIAction, DasikAI.UAI, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: PreviousAction
+        node: {fileID: 449785269399569329}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Scorer: {fileID: -8894641062994383922}
+  PositionPS: {fileID: 6452687950769596695}
+  NextAction: {fileID: 449785269399569329}

@@ -1,0 +1,1905 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8084865176869088259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26916d14ff207ce40a24bbf9d25cf2fd, type: 3}
+  m_Name: Set State Idle
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: 568}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: -8084865176869088259}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -8084865176869088259}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: IsElapsed
+        node: {fileID: 349456003698068400}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 349456003698068400}
+  next: []
+  State:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 0
+--- !u!114 &-6789762503174954986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a14b84fbe4d40ab9d1a2f36fe71aeda, type: 3}
+  m_Name: Is Player Visible
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 264}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: -6789762503174954986}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -2940913388104466122}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -6789762503174954986}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 7909526493363500045}
+        reroutePoints:
+        - {x: 1104.6339, y: 388.994}
+        - {x: 880, y: 400}
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -6789762503174954986}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 8047526865212683701}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 8047526865212683701}
+  true: {fileID: -2940913388104466122}
+  false: {fileID: 7909526493363500045}
+--- !u!114 &-6196988610716473308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d0fc64d70942c4d92321115a61bb7d, type: 3}
+  m_Name: States PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: -440}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: -6196988610716473308}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: 0}
+  StatesList:
+  - idle
+  - follow
+  - attack
+  - search
+  InitialState:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 0
+--- !u!114 &-4953133039961920881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73acaa7bc7434aa894c7da4ba5683596, type: 3}
+  m_Name: Is player visible?
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: -72}
+  ports:
+    keys:
+    - ParamSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: ParamSource
+      _node: {fileID: -4953133039961920881}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.BooleanParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -583729797624294248}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: -4953133039961920881}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 4477244354141510389}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -4953133039961920881}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -811822396727308854}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -4953133039961920881}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 5080031854896595914}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent: []
+  ParamSource: {fileID: -583729797624294248}
+  true: {fileID: 4477244354141510389}
+  false: {fileID: -811822396727308854}
+--- !u!114 &-2986111923759858840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73acaa7bc7434aa894c7da4ba5683596, type: 3}
+  m_Name: Is player visible?
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: -328}
+  ports:
+    keys:
+    - ParamSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: ParamSource
+      _node: {fileID: -2986111923759858840}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.BooleanParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -583729797624294248}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: -2986111923759858840}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 7255527137841778999}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -2986111923759858840}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -2986111923759858840}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -1436330873309081246}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: -1436330873309081246}
+  ParamSource: {fileID: -583729797624294248}
+  true: {fileID: 7255527137841778999}
+  false: {fileID: 0}
+--- !u!114 &-2940913388104466122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02ca47b948cb734f8c56becc75f00b5, type: 3}
+  m_Name: Move To Randomized Position
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: 264}
+  ports:
+    keys:
+    - next
+    - Parent
+    - next 0
+    - ParamSource
+    values:
+    - _fieldName: next
+      _node: {fileID: -2940913388104466122}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -2940913388104466122}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -785399503901172509}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next 0
+      _node: {fileID: -2940913388104466122}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 3807825697358028902}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: ParamSource
+      _node: {fileID: -2940913388104466122}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2752827707541037547}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent: []
+  next:
+  - {fileID: 3807825697358028902}
+  ParamSource: {fileID: -2752827707541037547}
+--- !u!114 &-2752827707541037547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547d34b9a14b22843b6c3e5bee4341b0, type: 3}
+  m_Name: Randomized Player Position PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 72, y: -408}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: -2752827707541037547}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: ParamSource
+        node: {fileID: -2940913388104466122}
+        reroutePoints: []
+      - fieldName: ParamSource
+        node: {fileID: 4546033110786819667}
+        reroutePoints: []
+      - fieldName: ParamSource
+        node: {fileID: -992320547024370473}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -992320547024370473}
+  _randomizedRadius: 3
+--- !u!114 &-1828637572336752964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0976d88983a08434a9303e80188f3723, type: 3}
+  m_Name: Sqr Distance To Player PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 632, y: -456}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: -1828637572336752964}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: paramSource
+        node: {fileID: -1436330873309081246}
+        reroutePoints: []
+      - fieldName: paramSource
+        node: {fileID: 8047526865212683701}
+        reroutePoints: []
+      - fieldName: paramSource
+        node: {fileID: 4477244354141510389}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -1436330873309081246}
+--- !u!114 &-1578452389820835996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef75582f1deb74f4bb7b491c23867128, type: 3}
+  m_Name: State Is Search
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 328, y: 552}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: -1578452389820835996}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 349456003698068400}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -1578452389820835996}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -1578452389820835996}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next 3
+        node: {fileID: 1141959831606858595}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 1141959831606858595}
+  _state:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 3
+  true: {fileID: 349456003698068400}
+  false: {fileID: 0}
+--- !u!114 &-1436330873309081246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2067d49ea66ed14694cf58f306cf78b, type: 3}
+  m_Name: Distance to Player is 20
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: -328}
+  ports:
+    keys:
+    - paramSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: paramSource
+      _node: {fileID: -1436330873309081246}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -1828637572336752964}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: -1436330873309081246}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -2986111923759858840}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -1436330873309081246}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -1436330873309081246}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 5659845432758588191}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent: []
+  paramSource: {fileID: -1828637572336752964}
+  _min: 0
+  _max: 400
+  true: {fileID: -2986111923759858840}
+  false: {fileID: 0}
+--- !u!114 &-992320547024370473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02ca47b948cb734f8c56becc75f00b5, type: 3}
+  m_Name: Move To Player
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: 56}
+  ports:
+    keys:
+    - next
+    - Parent
+    - ParamSource
+    values:
+    - _fieldName: next
+      _node: {fileID: -992320547024370473}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -992320547024370473}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: false
+        node: {fileID: 4477244354141510389}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: ParamSource
+      _node: {fileID: -992320547024370473}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2752827707541037547}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 4477244354141510389}
+  next: []
+  ParamSource: {fileID: -2752827707541037547}
+--- !u!114 &-975351209922383823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a14b84fbe4d40ab9d1a2f36fe71aeda, type: 3}
+  m_Name: Is Player Visible
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 872, y: 824}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: -975351209922383823}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -826242131746489957}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -975351209922383823}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 4546033110786819667}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -975351209922383823}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: IsNotElapsed
+        node: {fileID: 349456003698068400}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 349456003698068400}
+  true: {fileID: -826242131746489957}
+  false: {fileID: 4546033110786819667}
+--- !u!114 &-826242131746489957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26916d14ff207ce40a24bbf9d25cf2fd, type: 3}
+  m_Name: Set State Follow
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: 456}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: -826242131746489957}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -826242131746489957}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 3146454918463384286}
+        reroutePoints: []
+      - fieldName: false
+        node: {fileID: -785399503901172509}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 3146454918463384286}
+  - {fileID: -785399503901172509}
+  next: []
+  State:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 1
+--- !u!114 &-811822396727308854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26916d14ff207ce40a24bbf9d25cf2fd, type: 3}
+  m_Name: Set State Search
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: 40}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: -811822396727308854}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -811822396727308854}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: false
+        node: {fileID: -4953133039961920881}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: -4953133039961920881}
+  next: []
+  State:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 3
+--- !u!114 &-785399503901172509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73acaa7bc7434aa894c7da4ba5683596, type: 3}
+  m_Name: Is player visible?
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: 232}
+  ports:
+    keys:
+    - ParamSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: ParamSource
+      _node: {fileID: -785399503901172509}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.BooleanParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -583729797624294248}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: -785399503901172509}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -2940913388104466122}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -785399503901172509}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -826242131746489957}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -785399503901172509}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 8047526865212683701}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 8047526865212683701}
+  ParamSource: {fileID: -583729797624294248}
+  true: {fileID: -2940913388104466122}
+  false: {fileID: -826242131746489957}
+--- !u!114 &-583729797624294248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1ea3aac553498daab8f2a9fbdca9f8, type: 3}
+  m_Name: Is Player Visible PS
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: -440}
+  ports:
+    keys:
+    - Consumer
+    values:
+    - _fieldName: Consumer
+      _node: {fileID: -583729797624294248}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: ParamSource
+        node: {fileID: -4953133039961920881}
+        reroutePoints: []
+      - fieldName: ParamSource
+        node: {fileID: -2986111923759858840}
+        reroutePoints: []
+      - fieldName: ParamSource
+        node: {fileID: -785399503901172509}
+        reroutePoints: []
+      - fieldName: ParamSource
+        node: {fileID: 3146454918463384286}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Consumer: {fileID: -4953133039961920881}
+--- !u!114 &-371185220083216889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef75582f1deb74f4bb7b491c23867128, type: 3}
+  m_Name: State Is Attack
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: 200}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: -371185220083216889}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 8047526865212683701}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -371185220083216889}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -371185220083216889}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next 2
+        node: {fileID: 1141959831606858595}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 1141959831606858595}
+  _state:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 2
+  true: {fileID: 8047526865212683701}
+  false: {fileID: 0}
+--- !u!114 &-148588183274989152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a14b84fbe4d40ab9d1a2f36fe71aeda, type: 3}
+  m_Name: Is Player Visible
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: 72}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: -148588183274989152}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 4477244354141510389}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: -148588183274989152}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -811822396727308854}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: -148588183274989152}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 5080031854896595914}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 5080031854896595914}
+  true: {fileID: 4477244354141510389}
+  false: {fileID: -811822396727308854}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79db89e786a0b0b4bbe4bb1555d7859d, type: 3}
+  m_Name: New AI State Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 1141959831606858595}
+  - {fileID: -6196988610716473308}
+  - {fileID: 7255527137841778999}
+  - {fileID: -1828637572336752964}
+  - {fileID: 7205272690616444661}
+  - {fileID: 7909526493363500045}
+  - {fileID: 3807825697358028902}
+  - {fileID: -2940913388104466122}
+  - {fileID: -992320547024370473}
+  - {fileID: -2752827707541037547}
+  - {fileID: -811822396727308854}
+  - {fileID: 349456003698068400}
+  - {fileID: -8084865176869088259}
+  - {fileID: -826242131746489957}
+  - {fileID: 4546033110786819667}
+  - {fileID: -1436330873309081246}
+  - {fileID: 8047526865212683701}
+  - {fileID: 4477244354141510389}
+  - {fileID: -583729797624294248}
+  - {fileID: -4953133039961920881}
+  - {fileID: -2986111923759858840}
+  - {fileID: -785399503901172509}
+  - {fileID: 3146454918463384286}
+  - {fileID: 5080031854896595914}
+  - {fileID: 5659845432758588191}
+  - {fileID: -1578452389820835996}
+  - {fileID: -371185220083216889}
+  Root: {fileID: 1141959831606858595}
+  StatesSource: {fileID: -6196988610716473308}
+--- !u!114 &349456003698068400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebfd9ff3aa2ec2c41a287b28aa48c950, type: 3}
+  m_Name: Timer Check
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 600, y: 552}
+  ports:
+    keys:
+    - IsNotElapsed
+    - IsElapsed
+    - Parent
+    values:
+    - _fieldName: IsNotElapsed
+      _node: {fileID: 349456003698068400}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 3146454918463384286}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: IsElapsed
+      _node: {fileID: 349456003698068400}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -8084865176869088259}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 349456003698068400}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -1578452389820835996}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: -1578452389820835996}
+  _time: 5
+  IsElapsed: {fileID: -8084865176869088259}
+  IsNotElapsed: {fileID: 3146454918463384286}
+--- !u!114 &689515326459545931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a14b84fbe4d40ab9d1a2f36fe71aeda, type: 3}
+  m_Name: Is Player Visible
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 872, y: -312}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: 689515326459545931}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 7255527137841778999}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: 689515326459545931}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 0}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 689515326459545931}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -1436330873309081246}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: -1436330873309081246}
+  true: {fileID: 7255527137841778999}
+  false: {fileID: 0}
+--- !u!114 &1141959831606858595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6cd9664611f57b4ca9c10a04e5ce11f, type: 3}
+  m_Name: Empty
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 51, y: -5}
+  ports:
+    keys:
+    - next
+    - Parent
+    - next 0
+    - next 1
+    - next 2
+    - next 3
+    values:
+    - _fieldName: next
+      _node: {fileID: 1141959831606858595}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 1141959831606858595}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next 0
+      _node: {fileID: 1141959831606858595}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 5659845432758588191}
+        reroutePoints:
+        - {x: 288, y: -32}
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: next 1
+      _node: {fileID: 1141959831606858595}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 5080031854896595914}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: next 2
+      _node: {fileID: 1141959831606858595}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -371185220083216889}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: next 3
+      _node: {fileID: 1141959831606858595}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -1578452389820835996}
+        reroutePoints:
+        - {x: 272, y: 256}
+        - {x: 265.55914, y: 450.87964}
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  Parent: []
+  next:
+  - {fileID: 5659845432758588191}
+  - {fileID: 5080031854896595914}
+  - {fileID: -371185220083216889}
+  - {fileID: -1578452389820835996}
+--- !u!114 &3146454918463384286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73acaa7bc7434aa894c7da4ba5683596, type: 3}
+  m_Name: Is player visible?
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: 760}
+  ports:
+    keys:
+    - ParamSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: ParamSource
+      _node: {fileID: 3146454918463384286}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.BooleanParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -583729797624294248}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: 3146454918463384286}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -826242131746489957}
+        reroutePoints:
+        - {x: 1136, y: 752}
+        - {x: 1132.5591, y: 556.87964}
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: 3146454918463384286}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 4546033110786819667}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 3146454918463384286}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: IsNotElapsed
+        node: {fileID: 349456003698068400}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 349456003698068400}
+  ParamSource: {fileID: -583729797624294248}
+  true: {fileID: -826242131746489957}
+  false: {fileID: 4546033110786819667}
+--- !u!114 &3807825697358028902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7b3c5e6b8e425d4ba35fac06e3f3a58, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1416, y: 264}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: 3807825697358028902}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 3807825697358028902}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next 0
+        node: {fileID: -2940913388104466122}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: -2940913388104466122}
+  next: []
+  _bullet: {fileID: 3391595533454004941, guid: 2c4ba3d346c0b474b9eb1ec68e429332, type: 3}
+  _coolingTime: 0.5
+  _force: 10
+--- !u!114 &4477244354141510389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2067d49ea66ed14694cf58f306cf78b, type: 3}
+  m_Name: Distance to Player is 10
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: -136}
+  ports:
+    keys:
+    - paramSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: paramSource
+      _node: {fileID: 4477244354141510389}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -1828637572336752964}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: 4477244354141510389}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 7205272690616444661}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: 4477244354141510389}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -992320547024370473}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 4477244354141510389}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -4953133039961920881}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent: []
+  paramSource: {fileID: -1828637572336752964}
+  _min: 0
+  _max: 100
+  true: {fileID: 7205272690616444661}
+  false: {fileID: -992320547024370473}
+--- !u!114 &4546033110786819667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e02ca47b948cb734f8c56becc75f00b5, type: 3}
+  m_Name: Move To Player
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1192, y: 664}
+  ports:
+    keys:
+    - next
+    - Parent
+    - ParamSource
+    values:
+    - _fieldName: next
+      _node: {fileID: 4546033110786819667}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 4546033110786819667}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: false
+        node: {fileID: 3146454918463384286}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: ParamSource
+      _node: {fileID: 4546033110786819667}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.Vector2ParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -2752827707541037547}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent: []
+  next: []
+  ParamSource: {fileID: -2752827707541037547}
+--- !u!114 &5080031854896595914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef75582f1deb74f4bb7b491c23867128, type: 3}
+  m_Name: State Is Follow
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: -72}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: 5080031854896595914}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -4953133039961920881}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: 5080031854896595914}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 5080031854896595914}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next 1
+        node: {fileID: 1141959831606858595}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 1141959831606858595}
+  _state:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 1
+  true: {fileID: -4953133039961920881}
+  false: {fileID: 0}
+--- !u!114 &5659845432758588191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef75582f1deb74f4bb7b491c23867128, type: 3}
+  m_Name: State Is Idle
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 344, y: -328}
+  ports:
+    keys:
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: true
+      _node: {fileID: 5659845432758588191}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -1436330873309081246}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: 5659845432758588191}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 5659845432758588191}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: next 0
+        node: {fileID: 1141959831606858595}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 1141959831606858595}
+  _state:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 0
+  true: {fileID: -1436330873309081246}
+  false: {fileID: 0}
+--- !u!114 &7205272690616444661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26916d14ff207ce40a24bbf9d25cf2fd, type: 3}
+  m_Name: Set State Attack
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: -136}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: 7205272690616444661}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 7205272690616444661}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: 4477244354141510389}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 4477244354141510389}
+  next: []
+  State:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 2
+--- !u!114 &7255527137841778999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26916d14ff207ce40a24bbf9d25cf2fd, type: 3}
+  m_Name: Set State Follow
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1160, y: -328}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: 7255527137841778999}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 7255527137841778999}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -2986111923759858840}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: -2986111923759858840}
+  next: []
+  State:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 1
+--- !u!114 &7909526493363500045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26916d14ff207ce40a24bbf9d25cf2fd, type: 3}
+  m_Name: Set State Search
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 904, y: 376}
+  ports:
+    keys:
+    - next
+    - Parent
+    values:
+    - _fieldName: next
+      _node: {fileID: 7909526493363500045}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 7909526493363500045}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: false
+        node: {fileID: 8047526865212683701}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent:
+  - {fileID: 8047526865212683701}
+  next: []
+  State:
+    Values:
+    - idle
+    - follow
+    - attack
+    - search
+    SelectedIndex: 3
+--- !u!114 &8047526865212683701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2067d49ea66ed14694cf58f306cf78b, type: 3}
+  m_Name: Distance to Player is 10
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 616, y: 200}
+  ports:
+    keys:
+    - paramSource
+    - true
+    - false
+    - Parent
+    values:
+    - _fieldName: paramSource
+      _node: {fileID: 8047526865212683701}
+      _typeQualifiedName: DasikAI.Common.Base.ParamSources.FloatParamSource, DasikAI.Common,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Consumer
+        node: {fileID: -1828637572336752964}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: true
+      _node: {fileID: 8047526865212683701}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: -785399503901172509}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: false
+      _node: {fileID: 8047526865212683701}
+      _typeQualifiedName: DasikAI.Common.Base.AINode, DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Parent
+        node: {fileID: 7909526493363500045}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Parent
+      _node: {fileID: 8047526865212683701}
+      _typeQualifiedName: DasikAI.Common.Base.AINode[], DasikAI.Common, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: true
+        node: {fileID: -371185220083216889}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Parent: []
+  paramSource: {fileID: -1828637572336752964}
+  _min: 0
+  _max: 100
+  true: {fileID: -785399503901172509}
+  false: {fileID: 7909526493363500045}
