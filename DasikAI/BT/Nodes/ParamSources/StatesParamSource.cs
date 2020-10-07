@@ -1,4 +1,3 @@
-using DasikAI.Common.Controller;
 using DasikAI.BT.CustomTypes;
 using DasikAI.BT.Nodes.DSO;
 using DasikAI.Common.Attributes;
@@ -14,19 +13,19 @@ namespace DasikAI.BT.Nodes.ParamSources
     {
         [SerializeField] public string[] StatesList = {"Idle"};
 
-        [HideInInspector] public StatesEnum States => new StatesEnum {Values = StatesList};
+        public StatesEnum States => new StatesEnum {Values = StatesList};
 
         [SerializeField] public StatesEnum InitialState;
 
-        public override StatesEnum GetParam(Context context)
+        public override StatesEnum GetParam(NodeContext nodeContext)
         {
             return States;
         }
 
-        public override void OnInitialize(Context context)
+        public override void OnNodeInitialize(NodeContext nodeContext)
         {
-            base.OnInitialize(context);
-            context.SharedDSO.Add(typeof(StateDSO), new StateDSO() {State = InitialState.SelectedValue});
+            base.OnNodeInitialize(nodeContext);
+            nodeContext.SharedDSO.Add(typeof(StateDSO), new StateDSO() {State = InitialState.SelectedValue});
         }
     }
 }

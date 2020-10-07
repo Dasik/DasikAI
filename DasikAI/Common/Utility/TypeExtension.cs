@@ -3,27 +3,24 @@ using System.Linq;
 
 namespace DasikAI.Common.Utility
 {
-	public static class TypeExtensions
-	{
-		public static bool IsAssignableFromGeneric(this Type type, Type parentType)
-		{
-			if (!parentType.IsGenericType)
-			{
-				throw new ArgumentException("type must be generic", "parentType");
-			}
+    public static class TypeExtensions
+    {
+        public static bool IsAssignableFromGeneric(this Type c, Type type)
+        {
+            if (!c.IsGenericType)
+                throw new ArgumentException("type must be generic", nameof(c));
 
-			if (type == null || type == typeof(object))
-			{
-				return false;
-			}
 
-			if (type.IsGenericType && type.GetGenericTypeDefinition() == parentType)
-			{
-				return true;
-			}
+            if (type == null || type == typeof(object))
+                return false;
 
-			return type.BaseType.IsAssignableFromGeneric(parentType)
-				   || type.GetInterfaces().Any(t => t.IsAssignableFromGeneric(parentType));
-		}
-	}
+
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == c)
+                return true;
+
+
+            return c.IsAssignableFromGeneric(type.BaseType)
+                   || type.GetInterfaces().Any(c.IsAssignableFromGeneric);
+        }
+    }
 }

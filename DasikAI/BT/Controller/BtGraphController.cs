@@ -1,127 +1,104 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base;
+using DasikAI.Common.Base.ParamSources;
 using DasikAI.Common.Controller;
+using Unity.Profiling;
 using UnityEditor;
-using XNodeEditor;
 
 namespace DasikAI.BT.Controller
 {
     public class BtGraphController : AIGraphController<BTGraph>
     {
+        private static ProfilerMarker s_EnterNodeProfilerMarker =
+            new ProfilerMarker(nameof(BtGraphController) + "@Enter node");
+
+        private static ProfilerMarker s_DoWorkProfilerMarker =
+            new ProfilerMarker(nameof(BtGraphController) + "@Do Work");
+
+        private static ProfilerMarker s_GetNextNodesProfilerMarker =
+            new ProfilerMarker(nameof(BtGraphController) + "@Get next nodes");
+
+        private static ProfilerMarker s_DisableNodesProfilerMarker =
+            new ProfilerMarker(nameof(BtGraphController) + "@Disable nodes");
+
         public HashSet<AINode> ActiveNodes { get; private set; } = new HashSet<AINode>();
-
-        public void Start()
-        {
-            base.Start();
-            // if (btGraph.StatesSource != null)
-            // {
-            // 	if (!_sharedStoreObjects.ContainsKey(typeof(StateDSO))
-            // 	    || ((StateDSO) _sharedStoreObjects[typeof(StateDSO)]).State == null)
-            // 	{
-            // 		_sharedStoreObjects.Add(typeof(StateDSO),
-            // 			new StateDSO() {State = btGraph.StatesSource.InitialState.SelectedValue});
-            // 	}
-            // }
-
-            foreach (var node in graph.nodes)
-            {
-                if (node is AINode aiNode)
-                {
-                    var context = new Context(agentController, SharedDso, Contexts);
-                    Contexts.Add(aiNode, context);
-                    aiNode.OnInitialize(context);
-                }
-            }
-
-            //_activeNodes.Add(_aiGraph.root);
-        }
-
-        public void OnEnable()
-        {
-            foreach (var activeBlock in ActiveNodes)
-            {
-                activeBlock.OnEnable(Contexts[activeBlock]);
-            }
-        }
-
-        public void OnDisable()
-        {
-            foreach (var activeBlock in ActiveNodes)
-            {
-                activeBlock.OnEnable(Contexts[activeBlock]);
-            }
-        }
-
-        public void OnDestroy()
-        {
-            foreach (var node in graph.nodes)
-            {
-                var aiNode = node as AINode;
-                if (aiNode != null)
-                {
-                    aiNode.OnDispose(Contexts[aiNode]);
-                }
-            }
-        }
 
         public void Update()
         {
             var currentActivatedNodes = new HashSet<AINode>();
             var nodesStack = new Stack<AINode>();
-            nodesStack.Push(graph.Root);
+            nodesStack.Push(graph.Root); //start from root
+            var deactivateNodesList = ActiveNodes;
 
             while (nodesStack.Count != 0)
             {
+                s_EnterNodeProfilerMarker.Begin(this);
                 var currentNode = nodesStack.Pop();
                 var currentContext = Contexts[currentNode];
 
-                if (ActiveNodes.Contains(currentNode))
+                if (deactivateNodesList.Contains(currentNode)
+                ) // if node was previously activated remove it from deactivation list
                 {
-                    ActiveNodes.Remove(currentNode);
+                    deactivateNodesList.Remove(currentNode);
                 }
                 else
                 {
-                    currentNode.OnEnter(currentContext);
+                    currentNode.OnNodeEnter(currentContext); //is new node. Enter
                 }
 
                 currentActivatedNodes.Add(currentNode);
-
-                if (currentNode is BTBlock)
-                {
-                    var aiBlock = currentNode as BTBlock;
+                s_EnterNodeProfilerMarker.End();
+                s_DoWorkProfilerMarker.Begin(this);
+                if (currentNode is BTBlock aiBlock) //do work on activated node
                     aiBlock.DoWork(currentContext);
-                }
+                s_DoWorkProfilerMarker.End();
 
-                if (currentNode is BTNode currentBTNode)
-                    foreach (var node in currentBTNode.Next(currentContext))
-                    {
-                        if (node == null || currentActivatedNodes.Contains(node))
-                            continue;
-
-                        var nextAiNode = (AINode) node;
-                        nodesStack.Push(nextAiNode);
-                    }
-
-                Contexts[currentNode] = currentContext;
-
-#if UNITY_EDITOR
-                if (NodeEditorWindow.current != null)
+                s_GetNextNodesProfilerMarker.Begin(this);
+                if (currentNode is BTNode currentBTNode) //add next nodes to stack
                 {
-                    if (Selection.activeGameObject == gameObject)
-                        NodeEditorWindow.current.Repaint();
+                    var nextNodes = currentBTNode.Next(currentContext);
+                    if (nextNodes != null)
+                        foreach (var node in nextNodes)
+                        {
+                            if (ReferenceEquals(node, null) || currentActivatedNodes.Contains(node))
+                                continue;
+                            nodesStack.Push(node);
+                        }
                 }
-#endif
+
+                s_GetNextNodesProfilerMarker.End();
             }
 
-            foreach (var disabledBlock in ActiveNodes)
+            s_DisableNodesProfilerMarker.Begin(this);
+            foreach (var disabledBlock in deactivateNodesList)
             {
-                disabledBlock.OnExit(Contexts[disabledBlock]);
+                disabledBlock.OnNodeExit(Contexts[disabledBlock]);
             }
+
+            s_DisableNodesProfilerMarker.End();
 
             ActiveNodes = currentActivatedNodes;
+            
+#if UNITY_EDITOR
+            //redraw graph editor for debug
+            if (XNodeEditor.NodeEditorWindow.current != null)
+            {
+                if (Selection.activeGameObject == gameObject)
+                    XNodeEditor.NodeEditorWindow.current.Repaint();
+            }
+#endif
+        }
+
+        public override T GetParam<T>(ParamSource<T> paramSource)
+        {
+            return paramSource.GetParam(Contexts[paramSource]);
+        }
+
+        protected override NodeContext CreateNodeContext(AINode node)
+        {
+            return new NodeContext(characterController, SharedDso, this);
         }
     }
 }

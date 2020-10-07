@@ -82,7 +82,7 @@ namespace DasikAI.BT.Base
 			{
 				if (info.FieldType.IsArray)
 				{
-					if (info.FieldType.GetElementType().IsAssignableFrom(typeof(StatesEnum)))
+					if (typeof(StatesEnum).IsAssignableFrom(info.FieldType.GetElementType()))
 					{
 						Array oldStates = (Array) info.GetValue(node);
 						if (oldStates == null || StatesSource == null)
@@ -106,7 +106,7 @@ namespace DasikAI.BT.Base
 				}
 				else
 				{
-					if (info.FieldType == typeof(StatesEnum))
+					if (typeof(StatesEnum).IsAssignableFrom(info.FieldType))
 					{
 						if (StatesSource == null)
 							info.SetValue(node, null);
@@ -131,7 +131,7 @@ namespace DasikAI.BT.Base
 			{
 				if (info.PropertyType.IsArray)
 				{
-					if (info.PropertyType.GetElementType().IsAssignableFrom(typeof(StatesEnum)))
+					if (typeof(StatesEnum).IsAssignableFrom(info.PropertyType.GetElementType()))
 					{
 						Array oldStates = (Array) info.GetValue(node);
 						if (oldStates == null || StatesSource == null)
@@ -153,7 +153,7 @@ namespace DasikAI.BT.Base
 				}
 				else
 				{
-					if (info.PropertyType == typeof(StatesEnum) && info.CanWrite)
+					if (typeof(StatesEnum).IsAssignableFrom(info.PropertyType) && info.CanWrite)
 					{
 						if (StatesSource == null)
 							info.SetValue(node, null);

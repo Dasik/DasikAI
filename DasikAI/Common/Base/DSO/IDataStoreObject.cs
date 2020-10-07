@@ -2,10 +2,12 @@
 
 namespace DasikAI.Common.Base.DSO
 {
-	public interface IDataStoreObject { }
+    public interface IDataStoreObject
+    {
+    }
 
-	public struct DataStoreObject : IDataStoreObject
-	{
-		public IDictionary<object, object> Params { get; set; }
-	}
+    public struct DataStoreObject : IDataStoreObject
+    {
+        public IDictionary<object, object> Params { get; set; }
+    }
 }

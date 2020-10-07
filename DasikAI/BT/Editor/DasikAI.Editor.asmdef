@@ -3,6 +3,7 @@
     "references": [
         "DasikAI.BT",
         "DasikAI.Common",
+        "DasikAI.Common.Editor",
         "XNode",
         "XNodeEditor"
     ],

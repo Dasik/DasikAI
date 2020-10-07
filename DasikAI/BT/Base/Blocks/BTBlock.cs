@@ -7,17 +7,19 @@ using XNode;
 
 namespace DasikAI.BT.Base.Blocks
 {
-	public abstract class BTBlock : BTNode
-	{
-		[Input(ShowBackingValue.Always)] public AINode[] Parent = new AINode[1];
-		[Node.Output(dynamicPortList = true, backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override)]
-		public AINode[] next;
+    public abstract class BTBlock : BTNode
+    {
+        [Input(ShowBackingValue.Always)] public AINode[] Parent = new AINode[1];
 
-		public abstract void DoWork(Context context);
+        [Output(dynamicPortList = true, backingValue = ShowBackingValue.Never,
+            connectionType = ConnectionType.Override)]
+        public AINode[] next;
 
-		public override IEnumerable<AINode> Next(Context context)
-		{
-			return next;
-		}
-	}
+        public abstract void DoWork(NodeContext nodeContext);
+
+        public override IEnumerable<AINode> Next(NodeContext nodeContext)
+        {
+            return next;
+        }
+    }
 }

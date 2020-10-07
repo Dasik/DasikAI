@@ -2,14 +2,14 @@
 
 namespace DasikAI.Common.Attributes
 {
-	[AttributeUsage(AttributeTargets.Class, Inherited = false)]
-	public class AINodeAttribute : Attribute
-	{
-		public string EditorName { get; private set; }
+    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
+    public class AINodeAttribute : Attribute
+    {
+        public string EditorName { get; }
 
-		public AINodeAttribute(string editorName)
-		{
-			this.EditorName = editorName;
-		}
-	}
+        public AINodeAttribute(string editorName)
+        {
+            this.EditorName = editorName;
+        }
+    }
 }

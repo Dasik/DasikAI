@@ -1,0 +1,21 @@
+﻿{
+  "name": "DasikAI.UAI.Editor",
+  "references": [
+    "DasikAI",
+    "DasikAI.Common",
+    "DasikAI.UAI",
+    "XNode",
+    "XNodeEditor"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
