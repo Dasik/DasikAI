@@ -1,6 +1,6 @@
+using DasikAI.BT.Attributes;
 using DasikAI.BT.CustomTypes;
 using DasikAI.BT.Nodes.DSO;
-using DasikAI.Common.Attributes;
 using DasikAI.Common.Base.ParamSources;
 using DasikAI.Common.Base;
 using UnityEngine;
@@ -8,7 +8,7 @@ using UnityEngine;
 namespace DasikAI.BT.Nodes.ParamSources
 {
     [System.Serializable]
-    [AINode("Params/States")]
+    [BTNode("Params/States")]
     public class StatesParamSource : ParamSource<StatesEnum>
     {
         [SerializeField] public string[] StatesList = {"Idle"};

@@ -1,4 +1,4 @@
-﻿using DasikAI.Common.Attributes;
+﻿using DasikAI.BT.Attributes;
 using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base;
 
@@ -7,7 +7,7 @@ namespace DasikAI.BT.Nodes.Checks
     /// <summary>
     /// just return next node
     /// </summary>
-    [AINode("Checks/EmptyCheck")]
+    [BTNode("Checks/EmptyCheck")]
     public class EmptyCheck : BTBlockCheck
     {
         [Output] public AINode next;

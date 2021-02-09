@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DasikAI.Common.Controller;
+using DasikAI.BT.Attributes;
 using DasikAI.BT.CustomTypes;
-using DasikAI.Common.Attributes;
-using DasikAI.BT.Base;
 using DasikAI.BT.Base.Blocks;
-using DasikAI.Common.Base.DSO;
 using DasikAI.BT.Nodes.DSO;
 using DasikAI.Common.Base;
-using XNode;
 
 namespace DasikAI.BT.Nodes.Checks
 {
-    [AINode("Checks/StateIs")]
+    [BTNode("Checks/StateIs")]
     public class StateIs : BTBlockCheck
     {
         [Output(dynamicPortList = true, backingValue = ShowBackingValue.Always,

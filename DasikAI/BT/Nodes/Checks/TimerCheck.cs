@@ -1,4 +1,4 @@
-﻿using DasikAI.Common.Attributes;
+﻿using DasikAI.BT.Attributes;
 using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base.DSO;
 using DasikAI.Common.Base;
@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DasikAI.BT.Nodes.Checks
 {
-    [AINode("Checks/TimerCheck")]
+    [BTNode("Checks/TimerCheck")]
     public class TimerCheck : BTBlockCheck
     {
         [SerializeField] private float _time = 0;

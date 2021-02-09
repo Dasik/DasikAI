@@ -1,8 +1,9 @@
-﻿using DasikAI.UAI.Nodes.Blocks;
+﻿using DasikAI.Common.Base;
+using DasikAI.UAI.Nodes.Blocks;
 
 namespace DasikAI.UAI.Nodes.Base.Blocks
 {
-    public abstract class UAIAction : UAINode
+    public abstract class UAIAction : AINode
     {
         [Input(ShowBackingValue.Always, ConnectionType.Override)]
         public UAIScorer Scorer;

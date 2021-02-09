@@ -1,11 +1,11 @@
-﻿using DasikAI.BT.Base.Blocks;
-using DasikAI.Common.Attributes;
+﻿using DasikAI.BT.Attributes;
+using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base;
 using DasikAI.Common.Base.ParamSources;
 
 namespace DasikAI.BT.Nodes.Checks
 {
-    [AINode("Checks/If-Else statement")]
+    [BTNode("Checks/If-Else statement")]
     public class IfElseStatement : BTBlockCheck
     {
         [Input(ShowBackingValue.Always, ConnectionType.Override)]

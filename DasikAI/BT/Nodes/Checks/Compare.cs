@@ -1,5 +1,5 @@
 ﻿using System;
-using DasikAI.Common.Attributes;
+using DasikAI.BT.Attributes;
 using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base.ParamSources;
 using DasikAI.Common.Base;
@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DasikAI.BT.Nodes.Checks
 {
-    [AINode("Checks/Compare")]
+    [BTNode("Checks/Compare")]
     public class Compare : BTBlockCheck
     {
         [Input(ShowBackingValue.Always, ConnectionType.Override, TypeConstraint.None)]

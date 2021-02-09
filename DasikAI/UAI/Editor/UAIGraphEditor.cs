@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using DasikAI.Common.Attributes;
+using DasikAI.Common.Base;
 using DasikAI.Common.Base.ParamSources;
 using DasikAI.Common.Utility;
+using DasikAI.UAI.Attributes;
 using DasikAI.UAI.Nodes.Base;
 using UnityEngine;
 using XNode;
@@ -25,13 +27,16 @@ namespace DasikAI.UAI.Editor
         /// </summary>
         public override string GetNodeMenuName(System.Type type)
         {
-            if (!typeof(UAINode).IsAssignableFrom(type) &&
-                !typeof(ParamSource<>).IsAssignableFromGeneric(type))
+            if (!typeof(AINode).IsAssignableFrom(type))
                 return null;
-            if (type.Namespace?.StartsWith("DasikAI.BT.") ?? false) // hack to ignore all BT nodes
+            var attr =
+                type.GetCustomAttributes(typeof(UAINodeAttribute), true).FirstOrDefault() as AINodeAttribute ??
+                type.GetCustomAttributes(typeof(AINodeAttribute), true)
+                        .FirstOrDefault(attribute => attribute.GetType() == typeof(AINodeAttribute))
+                    as AINodeAttribute;
+            if (attr == null)
                 return null;
-            var attr = type.GetCustomAttributes(typeof(AINodeAttribute), true).FirstOrDefault() as AINodeAttribute;
-            return attr?.EditorName ?? base.GetNodeMenuName(type);
+            return attr.EditorName ?? base.GetNodeMenuName(type);
         }
 
         public override Color GetPortColor(NodePort port)
