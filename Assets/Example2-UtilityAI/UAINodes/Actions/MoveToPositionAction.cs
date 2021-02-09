@@ -1,12 +1,11 @@
 ﻿using System;
 using Dasik.PathFinder;
 using Dasik.PathFinder.Task;
-using DasikAI.Common.Attributes;
 using DasikAI.Common.Base;
 using DasikAI.Common.Base.ParamSources;
-using DasikAI.Common.Controller;
 using DasikAI.Example.Controller;
 using DasikAI.Example.Data.Graph.Nodes.DSO;
+using DasikAI.UAI.Attributes;
 using DasikAI.UAI.Nodes.Base.Blocks;
 using DasikAI.UAI.Nodes.Blocks;
 using UnityEngine;
@@ -15,7 +14,7 @@ using CharacterController = DasikAI.Common.Controller.CharacterController;
 
 namespace UAINodes.Actions
 {
-    [AINode("Example2/Actions/MoveToPosition")]
+    [UAINode("Example2/Actions/MoveToPosition")]
     public class MoveToPositionAction : UAIAction
     {
         [Node.InputAttribute(Node.ShowBackingValue.Always, Node.ConnectionType.Override, Node.TypeConstraint.None)]

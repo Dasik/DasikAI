@@ -1,4 +1,4 @@
-﻿using DasikAI.Common.Attributes;
+﻿using DasikAI.BT.Attributes;
 using DasikAI.BT.Base.Blocks;
 using DasikAI.Common.Base.DSO;
 using DasikAI.Common.Base;
@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace DasikAI.Example.Data.Graph.Nodes.Blocks
 {
-    [AINode("Example/Blocks/Attack")]
+    [BTNode("Example/Blocks/Attack")]
     public class Attack : BTBlock
     {
         [SerializeField] private GameObject _bullet;

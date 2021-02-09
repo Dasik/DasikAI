@@ -1,7 +1,6 @@
-﻿using DasikAI.Common.Attributes;
-using DasikAI.Common.Base;
+﻿using DasikAI.Common.Base;
 using DasikAI.Common.Base.DSO;
-using DasikAI.Example.Controller;
+using DasikAI.UAI.Attributes;
 using DasikAI.UAI.Nodes.Base.Blocks;
 using DasikAI.UAI.Nodes.Blocks;
 using UnityEngine;
@@ -9,7 +8,7 @@ using XNode;
 
 namespace UAINodes.Actions
 {
-    [AINode("Example2/Actions/Save current time")]
+    [UAINode("Example2/Actions/Save current time")]
     public class SaveCurrentTime : UAIAction
     {        
         [Input(ShowBackingValue.Always)]

@@ -1,9 +1,9 @@
 ﻿using System;
-using DasikAI.Common.Attributes;
 using DasikAI.Common.Base;
 using DasikAI.Common.Base.DSO;
 using DasikAI.Common.Base.ParamSources;
 using DasikAI.Example.Controller;
+using DasikAI.UAI.Attributes;
 using DasikAI.UAI.Nodes.Base.Blocks;
 using DasikAI.UAI.Nodes.Blocks;
 using UnityEngine;
@@ -11,7 +11,7 @@ using XNode;
 
 namespace UAINodes.Actions
 {
-    [AINode("Example2/Actions/Attack")]
+    [UAINode("Example2/Actions/Attack")]
     public class AttackAction : UAIAction
     {
         [Input] public FloatParamSource CoolingTime;

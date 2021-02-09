@@ -1,12 +1,9 @@
 ﻿using System;
 using Dasik.PathFinder;
 using Dasik.PathFinder.Task;
-using DasikAI.Common.Controller;
-using DasikAI.Common.Attributes;
+using DasikAI.BT.Attributes;
 using DasikAI.BT.Base.Blocks;
-using DasikAI.BT.Controller;
 using DasikAI.Common.Base;
-using DasikAI.Common.Base.DSO;
 using DasikAI.Common.Base.ParamSources;
 using DasikAI.Example.Controller;
 using DasikAI.Example.Data.Graph.Nodes.DSO;
@@ -17,7 +14,7 @@ using Object = UnityEngine.Object;
 
 namespace DasikAI.Example.Data.Graph.Nodes.Blocks
 {
-    [AINode("Example/Blocks/Move To Position")]
+    [BTNode("Example/Blocks/Move To Position")]
     public class MoveToPosition : BTBlock
     {
         private static ProfilerMarker s_MoveToPositionProfilerMarker =
